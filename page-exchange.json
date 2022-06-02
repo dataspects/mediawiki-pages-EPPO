@@ -26,16 +26,17 @@
         },
         {
           "name": "Property",
-          "namespace": "NS_FORM",
+          "namespace": "PF_NS_FORM",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Form/Property.mediawiki"
         },
         {
-          "name": "Untyped",
-          "namespace": "NS_FORM",
-          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Form/Untyped.mediawiki"
+          "name": "UntypedTopic",
+          "namespace": "PF_NS_FORM",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Form/UntypedTopic.mediawiki"
         }
       ],
-      "requiredExtensions": ["PageForms", "SemanticMediaWiki"]
+      "requiredExtensions": ["PageForms", "SemanticMediaWiki"],
+      "requiredPackages": ["com.dataspects.DynamicProperties.en"]
     }
   }
 }

@@ -1,4 +1,0 @@
-{{{info|add title=New Untyped|edit title=Edit Untyped|page name=C<unique number;random;10>}}}
-{{FormHeader|Untyped}}
-{{StandardFormSections}}
-{{FormFooter|Untyped}}

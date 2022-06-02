@@ -1,0 +1,4 @@
+{{{info|add title=New UntypedTopic|edit title=Edit UntypedTopic|page name=C<unique number;random;10>}}}
+{{FormHeader|UntypedTopic}}
+{{StandardFormSections}}
+{{FormFooter|UntypedTopic}}
