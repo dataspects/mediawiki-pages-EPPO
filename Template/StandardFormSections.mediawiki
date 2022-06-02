@@ -1,0 +1,6 @@
+|}
+{{{end template}}}
+= Content =
+<nowiki>{{{</nowiki>standard input{{!}}free text{{!}}|class=form-textarea{{!}}rows=30{{!}}editor=visualeditor<nowiki>}}}</nowiki>
+= Annotations =
+{{ForTemplateAnnotation}}

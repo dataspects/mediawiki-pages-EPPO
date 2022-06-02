@@ -1,0 +1,12 @@
+{{{info|add title=Initialize|edit title=Edit}}}
+
+{{{for template|PropertyPage}}}
+  {|class=formtable
+    !SMWHasType
+    |{{{field|SMWHasType|input type=dropdown|values=Text,URL,Page,Date,Boolean,Code|default=Text}}}
+    |-
+    !PredicateClass
+    |{{{field|PredicateClass|input type=dropdown|values=Property,ActiveAction,PassiveAction|default=Property}}}
+{{StandardFormSections}}
+
+{{FormFooter|PropertyPage}}

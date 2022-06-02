@@ -1,0 +1,8 @@
+<nowiki>{{{</nowiki>for template<nowiki>|</nowiki>{{{1}}}<nowiki>}}}</nowiki>
+  {|class=formtable
+    !Title
+    |<nowiki>{{{</nowiki>field<nowiki>|</nowiki>eppo0:hasEntityTitle<nowiki>|</nowiki>input type=text<nowiki>}}}</nowiki>
+    |-
+    !Blurb
+    |<nowiki>{{{</nowiki>field<nowiki>|</nowiki>eppo0:hasEntityBlurb<nowiki>|</nowiki>input type=textarea<nowiki>|</nowiki>class=form-textarea<nowiki>}}}</nowiki>
+    |-

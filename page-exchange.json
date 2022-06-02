@@ -1,0 +1,41 @@
+{
+  "publisher": "dataspects",
+  "author": "dataspects",
+  "language": "en",
+  "url": "https://github.com/dataspects/mediawiki-pages-EPPO",
+  "packages": {
+    "EPPO": {
+      "globalID": "com.dataspects.EPPO.en",
+      "description": null,
+      "version": "1",
+      "pages": [
+        {
+          "name": "StandardFormSections",
+          "namespace": "NS_TEMPLATE",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/StandardFormSections.mediawiki"
+        },
+        {
+          "name": "FormHeader",
+          "namespace": "NS_TEMPLATE",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/FormHeader.mediawiki"
+        },
+        {
+          "name": "FormFooter",
+          "namespace": "NS_TEMPLATE",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/FormFooter.mediawiki"
+        },
+        {
+          "name": "Property",
+          "namespace": "NS_FORM",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Form/Property.mediawiki"
+        },
+        {
+          "name": "Untyped",
+          "namespace": "NS_FORM",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Form/Untyped.mediawiki"
+        }
+      ],
+      "requiredExtensions": ["PageForms", "SemanticMediaWiki"]
+    }
+  }
+}
