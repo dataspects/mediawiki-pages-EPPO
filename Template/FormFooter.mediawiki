@@ -1,5 +1,3 @@
-<headertabs/>
-
 <nowiki>{{{</nowiki>standard input{{!}}summary<nowiki>}}}</nowiki>
 
 <nowiki>{{{</nowiki>standard input{{!}}minor edit<nowiki>}}}</nowiki> <nowiki>{{{</nowiki>standard input{{!}}watch<nowiki>}}}</nowiki>

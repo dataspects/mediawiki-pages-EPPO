@@ -16,4 +16,6 @@ This package implements the virtues of [Every Page is Page One](https://everypag
 ### Virtue: EPPO Topics Stay on One Level
 ### Virtue: EPPO Topics Link Richly
 
- 
+## LocalSettings
+
+    $wgPageFormsLinkAllRedLinksToForms = true;

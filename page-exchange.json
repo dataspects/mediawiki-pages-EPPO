@@ -33,6 +33,16 @@
           "name": "UntypedTopic",
           "namespace": "PF_NS_FORM",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Form/UntypedTopic.mediawiki"
+        },
+        {
+          "name": "UntypedTopic",
+          "namespace": "NS_TEMPLATE",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/UntypedTopic.mediawiki"
+        },
+        {
+          "name": "TopicMetaTemplate",
+          "namespace": "NS_TEMPLATE",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/TopicMetaTemplate.mediawiki"
         }
       ],
       "requiredExtensions": ["PageForms", "SemanticMediaWiki"],
