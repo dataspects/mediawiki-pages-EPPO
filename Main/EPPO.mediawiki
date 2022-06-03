@@ -1,0 +1,10 @@
+{|class="wikitable"
+!TopicType
+!Links
+!Building Blocks
+{{#ask:[[Category:TopicType]]
+|format=template
+|template=TopicTypesResultRow
+|link=none
+}}
+|}

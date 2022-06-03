@@ -1,0 +1,7 @@
+<includeonly>
+{{#formlink:form={{PAGENAME}}|link text=Add new|link type=button}}
+* [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Template:{{PAGENAME}} Template]
+* [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Form:{{PAGENAME}} Form]
+* [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Category:{{PAGENAME}} Category]
+[[Category:TopicType]]
+</includeonly>

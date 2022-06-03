@@ -43,6 +43,24 @@
           "name": "TopicMetaTemplate",
           "namespace": "NS_TEMPLATE",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/TopicMetaTemplate.mediawiki"
+        },
+        {
+          "name": "TopicType",
+          "namespace": "NS_TEMPLATE",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/TopicType.mediawiki"
+        },
+        {
+          "name": "TopicTypesResultRow",
+          "namespace": "NS_TEMPLATE",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/TopicTypesResultRow.mediawiki"
+        },
+        {
+          "name": "EPPO",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Main/EPPO.mediawiki"
+        },
+        {
+          "name": "UntypedTopic",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Category/UntypedTopic.mediawiki"
         }
       ],
       "requiredExtensions": ["PageForms", "SemanticMediaWiki"],
