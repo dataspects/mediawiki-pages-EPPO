@@ -29,6 +29,12 @@ $wgPageFormsLinkAllRedLinksToForms = true;
 
 * Consider automating the addition of a new EPPO topic type (#LEX2206031136)
 
+## Tests
+
+* https://download.cypress.io/desktop
+* Add project by navigating to `~/mediawiki-pages-EPPO/` (this is where the `cypress/` folder is located in)
+
+
 ## <a id="about-the-wiki-eppo-page"></a>About the `wiki/EPPO` page
 <figure>
   <img src="readme_images/2206031129.png" style="background-color:white;"/>
