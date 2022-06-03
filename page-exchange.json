@@ -60,10 +60,12 @@
         },
         {
           "name": "UntypedTopic",
+          "namespace": "NS_CATEGORY",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Category/UntypedTopic.mediawiki"
         },
         {
           "name": "TopicType",
+          "namespace": "NS_CATEGORY",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Category/TopicType.mediawiki"
         }
       ],
