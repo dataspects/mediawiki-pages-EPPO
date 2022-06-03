@@ -1,6 +1,13 @@
+<includeonly>
+* eppo0:hasEntityTitle: {{{eppo0:hasEntityTitle}}}
+* eppo0:hasEntityType: {{{eppo0:hasEntityType}}}
+* eppo0:hasEntityBlurb: {{{eppo0:hasEntityBlurb}}}
 {{AnnotationsList}}
-<includeonly>{{DISPLAYTITLE:{{{eppo0:hasEntityType}}} "{{{eppo0:hasEntityTitle}}}"}}
 {{#set:eppo0:hasEntityTitle={{{eppo0:hasEntityTitle}}}}}
 {{#set:eppo0:hasEntityType={{{eppo0:hasEntityType}}}}}
 {{#set:eppo0:hasEntityBlurb={{{eppo0:hasEntityBlurb}}}}}
-{{#default_form:{{{eppo0:hasEntityType}}}}}[[Category:Topic]][[Category:{{{eppo0:hasEntityType}}}]]</includeonly>
+{{DISPLAYTITLE:{{{eppo0:hasEntityType}}} "{{{eppo0:hasEntityTitle}}}"}}
+{{#default_form:{{{eppo0:hasEntityType}}}}}
+[[Category:Topic]]
+[[Category:{{{eppo0:hasEntityType}}}]]
+</includeonly>
