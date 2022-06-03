@@ -1,3 +1,7 @@
+__TOC__
+
+== All EPPO topic types ==
+
 {|class="wikitable"
 !TopicType
 !Links
@@ -8,3 +12,11 @@
 |link=none
 }}
 |}
+
+== How to add a new EPPO topic type ==
+
+Duplicate pages
+ UntypedTopic
+ Template:UntypedTopic
+ Form:UntypedTopic
+replacing UntypedTopic with the new EPPO topic name. (#LEX2206031136)

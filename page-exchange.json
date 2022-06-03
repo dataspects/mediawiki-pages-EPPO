@@ -61,6 +61,10 @@
         {
           "name": "UntypedTopic",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Category/UntypedTopic.mediawiki"
+        },
+        {
+          "name": "TopicType",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Category/TopicType.mediawiki"
         }
       ],
       "requiredExtensions": ["PageForms", "SemanticMediaWiki"],
