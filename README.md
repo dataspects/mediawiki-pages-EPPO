@@ -1,19 +1,15 @@
 # mediawiki-pages-EPPO
 
+This package implements the virtues of [Every Page is Page One](https://everypageispageone.com/the-book/), which are for information topics to *conform to a type*, *stay on one level* and to *link richly*. EPPO formalizes a way to **add information** to your knowledge base **as topics**.
+
 ## Features
 
-This package implements the virtues of [Every Page is Page One](https://everypageispageone.com/the-book/).
+* **Manage (add/edit/delete) information by EPPO topic type forms**<br/>*fill in title, blurb, free text, [dynamic properties](https://github.com/dataspects/mediawiki-pages-DynamicProperties) and topic type-specific properties*
+* **Manage EPPO topic types**<br/>- *define topic type-specific properties*<br/>- *use templates, mainly `TopicMetaTemplate`, `FormHeader`, `StandardFormSections` and `FormFooter`*
+* **View all EPPO topic types** at `wiki/EPPO` (<a href="#about-the-wiki-eppo-page">more information&hellip;</a>)<br/>
+  ![](readme_images/2206031055.png)  
 
-### Virtue: EPPO Topics Conform to a Type
-
-* View all EPPO topic types at page `wiki/EPPO`:
-<figure>
-  <img src="readme_images/2206031055.png"/>
-  <figcaption><a href="#about-the-wiki-eppo-page">More information about the wiki/EPPO page&hellip;</a></figcaption>
-</figure>
-  
-
-* Every EPPO topic type "Example" has its own page, e.g. `wiki/Example`:<pre>
+* **View an EPPO topic's instances** at `wiki/Example`:<pre>
 {{TopicType}}
 </pre>
 
@@ -23,10 +19,6 @@ This package implements the virtues of [Every Page is Page One](https://everypag
 {{StandardFormSections}}
 {{FormFooter|YourTopicType}}
 </pre>
-* 
-
-### Virtue: EPPO Topics Stay on One Level
-### Virtue: EPPO Topics Link Richly
 
 ## LocalSettings
 ```

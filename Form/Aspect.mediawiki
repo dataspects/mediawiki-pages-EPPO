@@ -1,0 +1,4 @@
+{{{info|add title=New Aspect|edit title=Edit Aspect|page name=C<unique number;random;10>}}}
+{{FormHeader|Aspect}}
+{{StandardFormSections}}
+{{FormFooter|Aspect}}
