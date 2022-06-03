@@ -3,5 +3,18 @@
 * [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Template:{{PAGENAME}} Template]
 * [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Form:{{PAGENAME}} Form]
 * [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Category:{{PAGENAME}} Category]
+
+== eppo0:hasEntityType::{{PAGENAME}} ==
+{|class="display datatables"
+!Page
+!Properties
+{{#ask:[[eppo0:hasEntityType::{{PAGENAME}}]]
+|?eppo0:hasEntityBlurb
+|format=list
+|template=TopicTypeInstancesResultRow
+|link=none
+|sep=;
+}}
+|}
 [[Category:TopicType]]
 </includeonly>
