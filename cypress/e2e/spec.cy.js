@@ -9,4 +9,7 @@ describe("EPPO", () => {
     // #MWSTAKEBP: top-level aspects should be organized in sections
     cy.get("h2").contains("All EPPO topic types");
   });
+  it("allows a user to add an instance of a EPPO topic type", () => {
+    cy.visit("/w/index.php?title=Special:FormEdit/Aspect");
+  });
 });
