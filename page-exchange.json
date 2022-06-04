@@ -109,17 +109,17 @@
         {
           "name": "eppo0:hasEntityTitle",
           "namespace": "SMW_NS_PROPERTY",
-          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-DynamicProperties/master/Property/eppo0:hasEntityTitle.mediawiki"
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/eppo0:hasEntityTitle.mediawiki"
         },
         {
           "name": "eppo0:hasEntityBlurb",
           "namespace": "SMW_NS_PROPERTY",
-          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-DynamicProperties/master/Property/eppo0:hasEntityBlurb.mediawiki"
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/eppo0:hasEntityBlurb.mediawiki"
         },
         {
           "name": "eppo0:hasEntityType",
           "namespace": "SMW_NS_PROPERTY",
-          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-DynamicProperties/master/Property/eppo0:hasEntityType.mediawiki"
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/eppo0:hasEntityType.mediawiki"
         }
       ],
       "requiredExtensions": ["PageForms", "SemanticMediaWiki"],
