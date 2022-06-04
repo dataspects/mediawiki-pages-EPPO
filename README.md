@@ -31,8 +31,7 @@ $wgPageFormsLinkAllRedLinksToForms = true;
 
 ## Tests
 
-* https://download.cypress.io/desktop
-* Add project by navigating to `~/mediawiki-pages-EPPO/` (this is where the `cypress/` folder is located in)
+Cypress
 
 
 ## <a id="about-the-wiki-eppo-page"></a>About the `wiki/EPPO` page

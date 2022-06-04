@@ -23,3 +23,10 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("mediawiki_login", (username, password) => {
+  cy.visit("/w/index.php?title=Special:UserLogin");
+  cy.get("#wpName1").type(username);
+  cy.get("#wpPassword1").type(password);
+  cy.get("#wpLoginAttempt").click();
+});
