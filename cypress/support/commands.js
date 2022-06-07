@@ -61,3 +61,8 @@ Cypress.Commands.add("eppoForm_addAProperty", (predicate, object) => {
     .type("{enter}");
   cy.get("input[origname='Annotation[AnnotationObject]']").last().type(object);
 });
+
+Cypress.Commands.add("mediawiki_refresh", () => {
+  cy.wait(wait);
+  cy.get("a").contains("Refresh").click({ force: true });
+});

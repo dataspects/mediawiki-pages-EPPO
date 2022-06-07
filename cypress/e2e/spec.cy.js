@@ -9,10 +9,21 @@ describe("EPPO", () => {
     // #MWSTAKEBP: top-level aspects should be organized in sections
     cy.get("h2").contains("All EPPO topic types");
   });
-  it("allows a user to add an instance of a EPPO topic type", () => {
+  it.only("allows a user to add an instance of a EPPO topic type", () => {
+    // Fill in form and save
     cy.visit("/w/index.php?title=Special:FormEdit/Aspect");
-    cy.eppoForm_addAProperty("ns0__predicateName", "objectName");
-    cy.eppoForm_addAProperty("ns0__predicateName", "objectName");
+    cy.get("input[name='Aspect[eppo0:hasEntityTitle]']").type("My title");
+    cy.eppoForm_addAProperty("ns0__predicateName", "objectName0");
+    cy.eppoForm_addAProperty("ns0__predicateName", "objectName1");
     cy.pageForm_savePage();
+    cy.mediawiki_refresh();
+    // Initialize property
+    cy.get("a").contains("Ns0 predicateName").click();
+    cy.pageForm_savePage();
+    cy.mediawiki_refresh();
+  });
+
+  it("allows a user to refresh a page", () => {
+    cy.mediawiki_refresh();
   });
 });
