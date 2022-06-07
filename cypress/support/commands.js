@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+//LEX2206071345
+
 const wait = 1000;
 
 Cypress.Commands.add("mediawiki_login", (username, password) => {
