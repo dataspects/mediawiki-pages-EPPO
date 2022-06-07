@@ -10,16 +10,19 @@ describe("EPPO", () => {
     cy.get("h2").contains("All EPPO topic types");
   });
   it.only("allows a user to add an instance of a EPPO topic type", () => {
+    const predicateName = "ns3__predicateName";
     // Fill in form and save
     cy.visit("/w/index.php?title=Special:FormEdit/Aspect");
-    cy.get("input[name='Aspect[eppo0:hasEntityTitle]']").type("My title");
-    cy.eppoForm_addAProperty("ns0__predicateName", "objectName0");
-    cy.eppoForm_addAProperty("ns0__predicateName", "objectName1");
+    cy.eppoForm_editTitle("My title");
+    cy.eppoForm_editBlurb("My blurb");
+    cy.eppoForm_editFreeText("My free text");
+    cy.eppoForm_addAProperty(predicateName, "objectName0");
+    cy.eppoForm_addAProperty(predicateName, "objectName1");
     cy.pageForm_savePage();
     cy.mediawiki_refresh();
-    // Initialize property
-    cy.get("a").contains("Ns0 predicateName").click();
-    cy.pageForm_savePage();
+    // View existing or initialize new property
+    cy.dataspects_initializeOrViewProperty(predicateName);
+
     cy.mediawiki_refresh();
   });
 

@@ -62,7 +62,36 @@ Cypress.Commands.add("eppoForm_addAProperty", (predicate, object) => {
   cy.get("input[origname='Annotation[AnnotationObject]']").last().type(object);
 });
 
+Cypress.Commands.add("eppoForm_editTitle", (title) => {
+  cy.get("input[name='Aspect[eppo0:hasEntityTitle]']").type(title);
+});
+Cypress.Commands.add("eppoForm_editBlurb", (blurb) => {
+  cy.get("textarea[name='Aspect[eppo0:hasEntityBlurb]']").type(blurb);
+});
+Cypress.Commands.add("eppoForm_editFreeText", (freeText) => {
+  cy.get("textarea[name='pf_free_text']").type(freeText);
+});
+
 Cypress.Commands.add("mediawiki_refresh", () => {
   cy.wait(wait);
   cy.get("a").contains("Refresh").click({ force: true });
+});
+
+const predicateNameReformattedBySMW = (predicateName) => {
+  return predicateName
+    .replace(/^\w/, (c) => c.toUpperCase())
+    .replace(/__/, " ");
+};
+
+Cypress.Commands.add("dataspects_initializeOrViewProperty", (predicateName) => {
+  let pn = predicateNameReformattedBySMW(predicateName);
+  cy.get("a")
+    .contains(pn)
+    .invoke("attr", "class")
+    .then((classList) => {
+      cy.get("a").contains(pn).click(); // class="new" or
+      if (classList && classList.includes("new")) {
+        cy.pageForm_savePage();
+      }
+    });
 });
