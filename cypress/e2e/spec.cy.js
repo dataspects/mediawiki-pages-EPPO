@@ -11,5 +11,8 @@ describe("EPPO", () => {
   });
   it("allows a user to add an instance of a EPPO topic type", () => {
     cy.visit("/w/index.php?title=Special:FormEdit/Aspect");
+    cy.eppoForm_addAProperty("ns0__predicateName", "objectName");
+    cy.eppoForm_addAProperty("ns0__predicateName", "objectName");
+    cy.pageForm_savePage();
   });
 });
