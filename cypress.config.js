@@ -4,5 +4,6 @@ module.exports = {
       // implement node event listeners here
     },
     baseUrl: "http://localhost",
+    chromeWebSecurity: false,
   },
 };

@@ -1,15 +1,11 @@
-beforeEach(() => {
-  cy.viewport(1600, 1000);
-  cy.mediawiki_login("lex", "globi2000globi");
-});
-
 describe("EPPO", () => {
-  it("should list all EPPO topic types", () => {
+  it.only("should list all EPPO topic types", () => {
+    cy.mediawiki_login("lex", "globi2000globi");
     cy.visit("/wiki/EPPO");
     // #MWSTAKEBP: top-level aspects should be organized in sections
     cy.get("h2").contains("All EPPO topic types");
   });
-  it.only("allows a user to add an instance of a EPPO topic type", () => {
+  it("allows a user to add an instance of a EPPO topic type", () => {
     const predicateName = "ns3__predicateName";
     // Fill in form and save
     cy.visit("/w/index.php?title=Special:FormEdit/Aspect");
@@ -22,7 +18,6 @@ describe("EPPO", () => {
     cy.mediawiki_refresh();
     // View existing or initialize new property
     cy.dataspects_initializeOrViewProperty(predicateName);
-
     cy.mediawiki_refresh();
   });
 
@@ -30,3 +25,5 @@ describe("EPPO", () => {
     cy.mediawiki_refresh();
   });
 });
+
+describe("EPPO2", () => {});
