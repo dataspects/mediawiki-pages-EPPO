@@ -1,5 +1,8 @@
 # mediawiki-pages-EPPO
 
+**[Documentation](https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main/doc.html
+)**
+
 This package implements the virtues of [Every Page is Page One](https://everypageispageone.com/the-book/), which are for information topics to *conform to a type*, *stay on one level* and to *link richly*. EPPO formalizes a way to **add information** to your knowledge base **as topics**.
 
 ## Features
@@ -32,9 +35,6 @@ $wgPageFormsLinkAllRedLinksToForms = true;
 ## Tests
 
 Cypress
-
-### Documentation parsed from Cypress tests
-
 
 
 ## <a id="about-the-wiki-eppo-page"></a>About the `wiki/EPPO` page
