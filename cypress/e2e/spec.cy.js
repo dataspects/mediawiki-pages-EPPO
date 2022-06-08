@@ -1,12 +1,13 @@
 describe("EPPO", () => {
-  it.only("should list all EPPO topic types", () => {
+  it("should list all EPPO topic types", () => {
     cy.mediawiki_login("lex", "globi2000globi");
     cy.visit("/wiki/EPPO");
     // #MWSTAKEBP: top-level aspects should be organized in sections
     cy.get("h2").contains("All EPPO topic types");
   });
-  it("allows a user to add an instance of a EPPO topic type", () => {
+  it.only("allows a user to add an instance of a EPPO topic type", () => {
     const predicateName = "ns3__predicateName";
+    cy.mediawiki_login("lex", "globi2000globi");
     // Fill in form and save
     cy.visit("/w/index.php?title=Special:FormEdit/Aspect");
     cy.eppoForm_editTitle("My title");
