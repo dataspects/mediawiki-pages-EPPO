@@ -13,9 +13,10 @@ describe("EPPO", () => {
     cy.eppoForm_editTitle("My title");
     cy.eppoForm_editBlurb("My blurb");
     cy.eppoForm_editFreeText("My free text");
+    cy.screenshot("Fill-in-standard-properties-in-EPPO-form");
     cy.eppoForm_addAProperty(predicateName, "objectName0");
     cy.eppoForm_addAProperty(predicateName, "objectName1");
-    cy.screenshot("Fill-in-EPPO-form");
+    cy.screenshot("Add-dynamic-properties-in-EPPO-form");
     cy.pageForm_savePage();
     cy.mediawiki_refresh();
     // View existing or initialize new property

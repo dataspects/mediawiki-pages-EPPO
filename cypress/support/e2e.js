@@ -18,4 +18,4 @@ import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-Cypress.Screenshot.defaults({ capture: "viewport", overwrite: true });
+Cypress.Screenshot.defaults({ capture: "fullPage", overwrite: true });

@@ -73,13 +73,14 @@ Cypress.Commands.add("eppoForm_editFreeText", (freeText) => {
 });
 
 Cypress.Commands.add("mediawiki_refresh", () => {
+  cy.wait(2000);
   cy.get("a").contains("Refresh").click({ force: true });
-  cy.get("button")
-    .contains("OK")
-    .then(($button) => {
-      $button.click();
-    });
-  cy.wait(1000);
+  cy.get("#content").then(($content) => {
+    if ($content.find("button").length > 0) {
+      $content.find("button").contains("OK").click();
+    }
+  });
+  cy.wait(2000);
 });
 
 const predicateNameReformattedBySMW = (predicateName) => {
