@@ -27,5 +27,3 @@ describe("EPPO", () => {
     cy.mediawiki_refresh();
   });
 });
-
-describe("EPPO2", () => {});
