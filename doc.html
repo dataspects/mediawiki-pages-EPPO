@@ -1,26 +1,27 @@
 <div class='describe'><span class='aspect'>Aspect</span> EPPO</div>
-<div class='left40'><span class='aspect'>Feature</span>: it should list all EPPO topic types</div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//mediawiki_login.png' target='_blank'>mediawiki_login</a></div>
+<div class='left20'><span class='feature'>Feature</span>: it should list all EPPO topic types</div>
+    <div class='left40'><span class='do'>Do</span> mediawiki_login</div>
     <div class='left40'><span class='goto'>Go to</span> /wiki/EPPO</div>
 <div class='left40 comment'>    #MWSTAKEBP: top-level aspects should be organized in sections</div>
 
-<div class='left40'><span class='aspect'>Feature</span>: it allows a user to add an instance of a EPPO topic type</div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//mediawiki_login.png' target='_blank'>mediawiki_login</a></div>
+<div class='left20'><span class='feature'>Feature</span>: it allows a user to add an instance of a EPPO topic type</div>
+    <div class='left40'><span class='do'>Do</span> mediawiki_login</div>
 <div class='left40 comment'>    Fill in form and save</div>
     <div class='left40'><span class='goto'>Go to</span> /w/index.php?title=Special:FormEdit/Aspect</div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//eppoForm_editTitle.png' target='_blank'>eppoForm_editTitle</a></div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//eppoForm_editBlurb.png' target='_blank'>eppoForm_editBlurb</a></div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//eppoForm_editFreeText.png' target='_blank'>eppoForm_editFreeText</a></div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//eppoForm_addAProperty.png' target='_blank'>eppoForm_addAProperty</a></div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//eppoForm_addAProperty.png' target='_blank'>eppoForm_addAProperty</a></div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//pageForm_savePage.png' target='_blank'>pageForm_savePage</a></div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//mediawiki_refresh.png' target='_blank'>mediawiki_refresh</a></div>
+    <div class='left40'><span class='do'>Do</span> eppoForm_editTitle</div>
+    <div class='left40'><span class='do'>Do</span> eppoForm_editBlurb</div>
+    <div class='left40'><span class='do'>Do</span> eppoForm_editFreeText</div>
+    <div class='left40'><span class='do'>Do</span> eppoForm_addAProperty</div>
+    <div class='left40'><span class='do'>Do</span> eppoForm_addAProperty</div>
+    <div class='left60'><span class='screenshot'>&rarr; Screenshot: </span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//Fill-in-EPPO-form.png' target='_blank'>Fill-in-EPPO-form</a></div>
+    <div class='left40'><span class='do'>Do</span> pageForm_savePage</div>
+    <div class='left40'><span class='do'>Do</span> mediawiki_refresh</div>
 <div class='left40 comment'>    View existing or initialize new property</div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//dataspects_initializeOrViewProperty.png' target='_blank'>dataspects_initializeOrViewProperty</a></div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//mediawiki_refresh.png' target='_blank'>mediawiki_refresh</a></div>
+    <div class='left40'><span class='do'>Do</span> dataspects_initializeOrViewProperty</div>
+    <div class='left40'><span class='do'>Do</span> mediawiki_refresh</div>
 
-<div class='left40'><span class='aspect'>Feature</span>: it allows a user to refresh a page</div>
-    <div class='left40'><span class='do'>Do</span> <a href='https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images//mediawiki_refresh.png' target='_blank'>mediawiki_refresh</a></div>
+<div class='left20'><span class='feature'>Feature</span>: it allows a user to refresh a page</div>
+    <div class='left40'><span class='do'>Do</span> mediawiki_refresh</div>
 
 <div class='describe'><span class='aspect'>Aspect</span> EPPO2</div>
 <hr/><div class='comment'>This documentation is automagically created from <a href='https://github.com/dataspects/mediawiki-pages-EPPO/tree/main/cypress/e2e/spec.cy.js'>spec.cy.js</a>.</div>
@@ -33,7 +34,8 @@
                     font-weight:bold; color:green;text-decoration: underline;
                 }
                 .feature {
-                    padding-left:20px; padding-top:10px; padding-bottom:5px; font-family:Sans-serif;
+                    font-weight:bold; 
+                    color:green;padding-bottom:5px; font-family:Sans-serif;
                 }
                 .goto {
                     font-weight:bold; color:orange;
@@ -41,11 +43,20 @@
                 .do {
                     font-weight:bold; color:orange;
                 }
+                .left20 {
+                    padding-left:20px; padding-top:20px;  font-family:Sans-serif;
+                }
                 .left40 {
-                    padding-left:40px; font-family:Sans-serif;
+                    padding-left:40px; padding-top:5px; font-family:Sans-serif;
+                }
+                .left60 {
+                    padding-left:60px; padding-top:5px; font-family:Sans-serif;
                 }
                 .comment {
                     color:grey;font-family:Sans-serif;
+                }
+                .screenshot {
+                    color:blue;font-family:Sans-serif;
                 }
             </style>
         

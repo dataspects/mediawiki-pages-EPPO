@@ -26,7 +26,7 @@
 
 //LEX2206071345
 
-const wait = 1000;
+const wait = 500;
 
 Cypress.Commands.add("mediawiki_login", (username, password) => {
   cy.visit("/w/index.php?title=Special:UserLogin");
@@ -73,8 +73,13 @@ Cypress.Commands.add("eppoForm_editFreeText", (freeText) => {
 });
 
 Cypress.Commands.add("mediawiki_refresh", () => {
-  cy.wait(wait);
   cy.get("a").contains("Refresh").click({ force: true });
+  cy.get("button")
+    .contains("OK")
+    .then(($button) => {
+      $button.click();
+    });
+  cy.wait(1000);
 });
 
 const predicateNameReformattedBySMW = (predicateName) => {

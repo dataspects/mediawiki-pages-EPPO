@@ -15,6 +15,7 @@ describe("EPPO", () => {
     cy.eppoForm_editFreeText("My free text");
     cy.eppoForm_addAProperty(predicateName, "objectName0");
     cy.eppoForm_addAProperty(predicateName, "objectName1");
+    cy.screenshot("Fill-in-EPPO-form");
     cy.pageForm_savePage();
     cy.mediawiki_refresh();
     // View existing or initialize new property

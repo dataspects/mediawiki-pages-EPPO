@@ -4,6 +4,7 @@ module.exports = {
       // implement node event listeners here
     },
     baseUrl: "http://localhost",
-    chromeWebSecurity: false,
+    screenshotsFolder: "/home/lex/mediawiki-pages-EPPO/readme_images",
+    video: true,
   },
 };
