@@ -1,1 +1,1 @@
-{{{1}}}
+{{{1}}}("<a href='{{SERVER}}/wiki/{{{1}}}'>{{#show:{{{1}}}|?Eppo0:hasEntityType}} <b>{{#show:{{{1}}}|?Eppo0:hasEntityTitle}}</b></a>")
