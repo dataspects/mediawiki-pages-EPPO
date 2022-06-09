@@ -1,12 +1,34 @@
 
-            <table><tr><td>
-                <div class='describe'><span class='aspect'>Aspect</span> EPPO</div>
-<div class='left20'><span class='feature'>Feature</span>: it should list all EPPO topic types</div>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>MWStake Doc</title>
+                <link rel="stylesheet" href="style.css">
+            </head>
+            <body>
+                <script src="index.js"></script>
+                
+        <img src="https://mwstake.org/mwstake/branding/logo.png" style="width:50px;"/>
+        <ol>
+            <li>
+                This is the <b>documentation on the use cases</b> enabled in the <a href="https://www.mediawiki.org/wiki/Extension:Page_Exchange">Page Exchange</a> package <a href="https://github.com/dataspects/mediawiki-pages-EPPO">https://github.com/dataspects/mediawiki-pages-EPPO</a>.
+            </li>
+            <li>
+                These use cases based on <a href='https://github.com/dataspects/mediawiki-pages-EPPO/tree/main/cypress/e2e/spec.cy.js'>spec.cy.js</a> are curated by MWStake and currently <b>certified for MWCore 1.36</b> in conjunction with <a href="">this set of extensions</a>.
+            </li>
+        </ol>
+        
+                <table><tr><td>
+                    <div class='describe'><span class='aspect'>Aspect</span>: <b>EPPO</b></div>
+<div class='left20'><span class='feature'>Use Case</span>: <b>it should list all EPPO topic types</b></div>
     <div class='left40'><span class='do'>Do</span> mediawiki_login</div>
     <div class='left40'><span class='goto'>Go to</span> /wiki/EPPO</div>
 <div class='left40 comment'>    #MWSTAKEBP: top-level aspects should be organized in sections</div>
 
-<div class='left20'><span class='feature'>Feature</span>: it allows a user to add an instance of a EPPO topic type</div>
+<div class='left20'><span class='feature'>Use Case</span>: <b>it allows a user to add an instance of a EPPO topic type</b></div>
     <div class='left40'><span class='do'>Do</span> mediawiki_login</div>
 <div class='left40 comment'>    Fill in form and save</div>
     <div class='left40'><span class='goto'>Go to</span> /w/index.php?title=Special:FormEdit/Aspect</div>
@@ -23,25 +45,32 @@
     <div class='left40'><span class='do'>Do</span> dataspects_initializeOrViewProperty</div>
     <div class='left40'><span class='do'>Do</span> mediawiki_refresh</div>
 
-<div class='left20'><span class='feature'>Feature</span>: it allows a user to refresh a page</div>
+<div class='left20'><span class='feature'>Use Case</span>: <b>it allows a user to refresh a page</b></div>
     <div class='left40'><span class='do'>Do</span> mediawiki_refresh</div>
 
-                <div class='comment'>This documentation is automagically created from <a href='https://github.com/dataspects/mediawiki-pages-EPPO/tree/main/cypress/e2e/spec.cy.js'>spec.cy.js</a>.</div>
-            </td><td>
-                <figure><figcaption>Fill-in-standard-properties-in-EPPO-form</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Fill-in-standard-properties-in-EPPO-form.png" /><figcaption>Fill-in-standard-properties-in-EPPO-form</figcaption></figure><hr/><figure><figcaption>Add-dynamic-properties-in-EPPO-form</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Add-dynamic-properties-in-EPPO-form.png" /><figcaption>Add-dynamic-properties-in-EPPO-form</figcaption></figure>
-            </td></tr></table>
+                </td><td>
+                    <figure><figcaption>Fill-in-standard-properties-in-EPPO-form</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Fill-in-standard-properties-in-EPPO-form.png" /><figcaption>Fill-in-standard-properties-in-EPPO-form</figcaption></figure><hr/><figure><figcaption>Add-dynamic-properties-in-EPPO-form</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Add-dynamic-properties-in-EPPO-form.png" /><figcaption>Add-dynamic-properties-in-EPPO-form</figcaption></figure>
+                </td></tr></table>
+            </body>
+            </html>
+            
         
             <style>
+                body {
+                    font-family:Sans-serif;
+                    line-height:150%;
+                    padding:50px;
+                }                
                 .describe {
                     padding-top:10px;
-                    font-family:Sans-serif;
+                    
                 }
                 .aspect {
                     font-weight:bold; color:green;text-decoration: underline;
                 }
                 .feature {
                     font-weight:bold; 
-                    color:green;padding-bottom:5px; font-family:Sans-serif;
+                    color:green;padding-bottom:5px; 
                 }
                 .goto {
                     font-weight:bold; color:orange;
@@ -50,22 +79,23 @@
                     font-weight:bold; color:orange;
                 }
                 .left20 {
-                    padding-left:20px; padding-top:20px;  font-family:Sans-serif;
+                    padding-left:20px; padding-top:20px;  
                 }
                 .left40 {
-                    padding-left:40px; padding-top:5px; font-family:Sans-serif;
+                    padding-left:40px; padding-top:5px; 
                 }
                 .left60 {
-                    padding-left:60px; padding-top:5px; font-family:Sans-serif;
+                    padding-left:60px; padding-top:5px; 
                 }
                 .comment {
-                    color:grey;font-family:Sans-serif;
+                    color:grey;
                 }
                 .screenshot {
-                    color:blue;font-family:Sans-serif;
+                    color:blue;
                 }
                 td {
                     vertical-align:top;
+                    padding:10px;
                 }
                 .screenshotPNG {
                     width:600px;
