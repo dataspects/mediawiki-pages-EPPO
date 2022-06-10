@@ -13,6 +13,10 @@ __TOC__
 }}
 |}
 
+== All EPPO predicates ==
+
+{{#ask:[[Property:+]][[namespace::Mwsk]]|format=ul}}
+
 == How to add a new EPPO topic type ==
 
 Duplicate pages

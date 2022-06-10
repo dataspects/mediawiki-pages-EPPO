@@ -1,0 +1,5 @@
+<includeonly>{{#mermaid:
+  graph LR
+    {{#arraymaptemplate:{{#ask:[[{{{1}}}::+]]|format=array|link=none|limit=5| searchlabel=|sep=,}}|MermaidNode|,|\n\n}}
+    {{#arraymaptemplate:{{#ask:[[{{{1}}}::+]]|format=array|link=none|limit=5| searchlabel=|sep=,}}|MermaidEdge|,|\n\n}}
+}}</includeonly>
