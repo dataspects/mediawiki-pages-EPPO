@@ -1,0 +1,4 @@
+{{#concept:
+ [[Property:+]][[ds0:namespace::+]]
+}}
+[[ds0:active::true]]

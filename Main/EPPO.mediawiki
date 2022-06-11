@@ -21,6 +21,9 @@ __TOC__
 
 == All concepts ==
 
+# A TopicType's form page calls [[Template:StandardFormSections]] with <code>dynamicPropertiesConcept=<CONCEPT_NAME></code>.
+# <code>dynamicPropertiesConcept</code>'s default value is set in [[Template:StandardFormSections]]. 
+
 {{#ask:[[Concept:+]][[ds0:active::true]]|format=ul}}
 |}
 == How to add a new EPPO topic type ==
