@@ -1,5 +1,7 @@
 __TOC__
 
+{|
+|style="vertical-align:top;"|
 == All EPPO topic types ==
 
 {|class="wikitable"
@@ -12,11 +14,15 @@ __TOC__
 |link=none
 }}
 |}
-
+|style="vertical-align:top;"|
 == All EPPO predicates ==
 
-{{#ask:[[Property:+]][[namespace::Mwsk]]|format=ul}}
+{{#ask:[[Property:+]][[namespace::Mwstake]]|format=ul}}
 
+== All concepts ==
+
+{{#ask:[[Concept:+]]|format=ul}}
+|}
 == How to add a new EPPO topic type ==
 
 Duplicate pages
