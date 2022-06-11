@@ -15,9 +15,9 @@ __TOC__
 }}
 |}
 |style="vertical-align:top;"|
-== All EPPO predicates ==
+== All ds0:namespace predicates ==
 
-{{#ask:[[Property:+]][[ds0:namespace::Mwstake]]|format=ul}}
+{{#ask:[[Property:+]][[ds0:namespace::+]]|format=ul}}
 
 == All concepts ==
 
