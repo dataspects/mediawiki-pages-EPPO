@@ -6,21 +6,23 @@ describe("EPPO", () => {
     cy.get("h2").contains("All EPPO topic types");
   });
   it.only("allows a user to add an instance of a EPPO topic type", () => {
-    const predicateName = "ns3__predicateName";
     cy.mediawiki_login("lex", "globi2000globi");
     // Fill in form and save
-    cy.visit("/w/index.php?title=Special:FormEdit/Aspect");
-    cy.eppoForm_editTitle("My title");
-    cy.eppoForm_editBlurb("My blurb");
-    cy.eppoForm_editFreeText("My free text");
+    cy.visit("/w/index.php?title=Special:FormEdit/UseCase");
+    cy.eppoForm_editTitle("My use case title", "UseCase");
+    cy.eppoForm_editBlurb("My use case blurb", "UseCase");
+    cy.eppoForm_editFreeText("My use case free text");
     cy.screenshot("Fill-in-standard-properties-in-EPPO-form");
-    cy.eppoForm_addAProperty(predicateName, "objectName0");
-    cy.eppoForm_addAProperty(predicateName, "objectName1");
+    cy.eppoForm_addAProperty(
+      "Property:Mwstake:use case category",
+      "objectName0"
+    );
+    // cy.eppoForm_addAProperty(predicateName, "objectName1");
     cy.screenshot("Add-dynamic-properties-in-EPPO-form");
     cy.pageForm_savePage();
     cy.mediawiki_refresh();
     // View existing or initialize new property
-    cy.dataspects_initializeOrViewProperty(predicateName);
+    // cy.dataspects_initializeOrViewProperty(predicateName);
     cy.mediawiki_refresh();
   });
 

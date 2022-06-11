@@ -62,11 +62,13 @@ Cypress.Commands.add("eppoForm_addAProperty", (predicate, object) => {
   cy.get("input[origname='Annotation[AnnotationObject]']").last().type(object);
 });
 
-Cypress.Commands.add("eppoForm_editTitle", (title) => {
-  cy.get("input[name='Aspect[eppo0:hasEntityTitle]']").type(title);
+Cypress.Commands.add("eppoForm_editTitle", (title, topicType) => {
+  cy.get("input[name='" + topicType + "[eppo0:hasEntityTitle]']").type(title);
 });
-Cypress.Commands.add("eppoForm_editBlurb", (blurb) => {
-  cy.get("textarea[name='Aspect[eppo0:hasEntityBlurb]']").type(blurb);
+Cypress.Commands.add("eppoForm_editBlurb", (blurb, topicType) => {
+  cy.get("textarea[name='" + topicType + "[eppo0:hasEntityBlurb]']").type(
+    blurb
+  );
 });
 Cypress.Commands.add("eppoForm_editFreeText", (freeText) => {
   cy.get("textarea[name='pf_free_text']").type(freeText);
