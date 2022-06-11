@@ -3,4 +3,4 @@
 = Content =
 <nowiki>{{{</nowiki>standard input{{!}}free text{{!}}|class=form-textarea{{!}}rows=10{{!}}editor=visualeditor<nowiki>}}}</nowiki>
 = Annotations =
-{{ForTemplateAnnotation}}
+{{ForTemplateAnnotation|dynamicPropertiesConcept={{{dynamicPropertiesConcept}}}}}
