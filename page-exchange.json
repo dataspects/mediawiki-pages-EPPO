@@ -135,6 +135,11 @@
           "name": "eppo0:hasEntityType",
           "namespace": "SMW_NS_PROPERTY",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/eppo0:hasEntityType.mediawiki"
+        },
+        {
+          "name": "namespace",
+          "namespace": "SMW_NS_PROPERTY",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/namespace.mediawiki"
         }
       ],
       "requiredExtensions": ["PageForms", "SemanticMediaWiki"],
