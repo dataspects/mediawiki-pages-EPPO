@@ -17,11 +17,11 @@ __TOC__
 |style="vertical-align:top;"|
 == All EPPO predicates ==
 
-{{#ask:[[Property:+]][[namespace::Mwstake]]|format=ul}}
+{{#ask:[[Property:+]][[ds0:namespace::Mwstake]]|format=ul}}
 
 == All concepts ==
 
-{{#ask:[[Concept:+]]|format=ul}}
+{{#ask:[[Concept:+]][[ds0:active::true]]|format=ul}}
 |}
 == How to add a new EPPO topic type ==
 

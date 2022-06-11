@@ -137,9 +137,14 @@
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/eppo0:hasEntityType.mediawiki"
         },
         {
-          "name": "namespace",
+          "name": "ds0:namespace",
           "namespace": "SMW_NS_PROPERTY",
-          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/namespace.mediawiki"
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/ds0:namespace.mediawiki"
+        },
+        {
+          "name": "ds0:active",
+          "namespace": "SMW_NS_PROPERTY",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/ds0:active.mediawiki"
         }
       ],
       "requiredExtensions": ["PageForms", "SemanticMediaWiki"],
