@@ -15,6 +15,7 @@ function p.show(frame)
   end
 
   objectValues = {}
+  
   if type( propertiesQuery ) == "table" then
     for k,v in pairs( propertiesQuery.results ) do
       property = split(v.fulltext, ":")
