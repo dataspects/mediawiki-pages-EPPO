@@ -152,9 +152,9 @@
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Concept/AllPredicates.mediawiki"
         },
         {
-          "name": "ObjectValues2",
+          "name": "ObjectValues",
           "namespace": "NS_MODULE",
-          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Module/ObjectValues2.scribunto"
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Module/ObjectValues.scribunto"
         }
       ],
       "requiredExtensions": ["PageForms", "SemanticMediaWiki"],
