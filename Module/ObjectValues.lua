@@ -24,9 +24,20 @@ function p.show(frame)
       propertyWithoutMWNamespace = property[2] .. ":" .. property[3]
       collectObjectValues(propertyWithoutMWNamespace)
     end
-    return table.concat(objectValues, ';')
   end
 
+  allEPPOPages()
+
+  return table.concat(objectValues, ';')
+end
+
+function allEPPOPages()
+  local pagesQuery = mw.smw.getQueryResult("[[Eppo0:hasEntityType::+]]")
+  if type( pagesQuery ) == "table" then
+    for pageName, pageData in pairs( pagesQuery.results ) do
+		    table.insert(objectValues, pageData["fulltext"])
+		end
+  end
 end
 
 function collectObjectValues(property)
@@ -40,7 +51,10 @@ function collectObjectValues(property)
 	
 	for _, paios in pairs( predicateAndItsObjects ) do
 	    for predicateName, objects in pairs( paios ) do
-	        table.insert(objectValues, objects[1])
+          if type ( objects[1] ) ~= "table" then
+            -- these are just the literal object values, page names are handled by allEPPOPages()
+            table.insert(objectValues, objects[1])
+          end
 	    end
 	end
 	objectValues = arrayUnique(objectValues)
