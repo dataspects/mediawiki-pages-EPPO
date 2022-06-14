@@ -20,26 +20,31 @@ function collect(property, graphData)
 	if type( query ) == "table" then
 		-- https://github.com/SemanticMediaWiki/SemanticScribunto/blob/master/docs/mw.smw.getQueryResult.md
 		for k, result in pairs( query.results ) do
-			subjectName = result.fulltext
-			nodeLabel = subjectName
+			subjectData = getSubjectData(result, nodeLabelFromPredicate)
 			subjectNodeProperties = {}
 			for predicateName, objects in pairs( result["printouts"] ) do
 				if type ( objects[1] ) == "table" then
 					-- it's a relationship
-					insertObjectNode(subjectName, predicateName, objects, graphData)
+					insertObjectNode(subjectData[1], predicateName, objects, graphData)
 				else
 					table.insert(subjectNodeProperties, predicateName)
-					if predicateName == nodeLabelFromPredicate then
-						nodeLabel = objects[1]
-					end
 				end
 			end
-			insertSubjectNode(subjectName, nodeLabel, result, subjectNodeProperties, graphData)
+			insertSubjectNode(subjectName, subjectData[2], result, subjectNodeProperties, graphData)
 		end
 	end
 end
 
-function insertSubjectNode(subjectName, nodeLabel, result, subjectNodeProperties, graphData)
+function getSubjectData(result, nodeLabelFromPredicate)
+	subjectName = result.fulltext
+	nodeLabel = subjectName
+	for predicateName, objects in pairs( result["printouts"] ) do
+		if type ( objects[1] ) ~= "table" then
+			if predicateName == nodeLabelFromPredicate then
+				nodeLabel = objects[1]
+			end
+		end
+	end
 	subjectTitle = subjectName
 	if nodeLabel == subjectName then
 		if result.displaytitle ~= "" then
@@ -47,12 +52,18 @@ function insertSubjectNode(subjectName, nodeLabel, result, subjectNodeProperties
 		end
 	else
 		subjectTitle = nodeLabel
+		subjectName = nodeLabel
 	end
+	return {subjectName, subjectTitle}
+end
+
+function insertSubjectNode(subjectName, subjectTitle, result, subjectNodeProperties, graphData)
 	table.insert(graphData, node(subjectName, subjectTitle, subjectNodeProperties))
 end
 
 function insertObjectNode(subjectName, predicateName, objects, graphData)
 	objectName = objects[1]["fulltext"]
+	-- FIXME: the object title must correspond with nodeLabelFromPredicate
 	table.insert(graphData, node(objectName, objects[1]["displaytitle"], {}))
 	table.insert(graphData, subjectName .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectName)
 end
