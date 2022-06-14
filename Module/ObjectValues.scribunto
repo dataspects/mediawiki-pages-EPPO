@@ -1,5 +1,7 @@
 local p = {}
 
+-- https://github.com/SemanticMediaWiki/SemanticScribunto/blob/master/docs/mw.smw.getQueryResult.md
+
 function p.show(frame)
 
   local selectingStatement = frame.args[1]
