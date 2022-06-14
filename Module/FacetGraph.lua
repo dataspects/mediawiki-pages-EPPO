@@ -5,6 +5,7 @@ local p = {}
 
 function p.show(frame)
 	local selectingStatement = frame.args[1]
+	nodeLabelFromPredicate = frame.args[2]
 	local properties = collectProperties(selectingStatement)
 	graphData = {}
 	for k, property in pairs(properties) do
@@ -15,11 +16,12 @@ function p.show(frame)
 end
 
 function collect(property, graphData)
-	local query = mw.smw.getQueryResult("[[" .. property .. "::+]]|?" .. property)
+	local query = mw.smw.getQueryResult("[[" .. property .. "::+]]|?" .. property .. "|?" .. nodeLabelFromPredicate)
 	if type( query ) == "table" then
 		-- https://github.com/SemanticMediaWiki/SemanticScribunto/blob/master/docs/mw.smw.getQueryResult.md
 		for k, result in pairs( query.results ) do
 			subjectName = result.fulltext
+			nodeLabel = subjectName
 			subjectNodeProperties = {}
 			for predicateName, objects in pairs( result["printouts"] ) do
 				if type ( objects[1] ) == "table" then
@@ -27,17 +29,24 @@ function collect(property, graphData)
 					insertObjectNode(subjectName, predicateName, objects, graphData)
 				else
 					table.insert(subjectNodeProperties, predicateName)
+					if predicateName == nodeLabelFromPredicate then
+						nodeLabel = objects[1]
+					end
 				end
 			end
-			insertSubjectNode(subjectName, result, subjectNodeProperties, graphData)
+			insertSubjectNode(subjectName, nodeLabel, result, subjectNodeProperties, graphData)
 		end
 	end
 end
 
-function insertSubjectNode(subjectName, result, subjectNodeProperties, graphData)
+function insertSubjectNode(subjectName, nodeLabel, result, subjectNodeProperties, graphData)
 	subjectTitle = subjectName
-	if result.displaytitle ~= "" then
-		subjectTitle = result.displaytitle
+	if nodeLabel == subjectName then
+		if result.displaytitle ~= "" then
+			subjectTitle = result.displaytitle
+		end
+	else
+		subjectTitle = nodeLabel
 	end
 	table.insert(graphData, node(subjectName, subjectTitle, subjectNodeProperties))
 end
