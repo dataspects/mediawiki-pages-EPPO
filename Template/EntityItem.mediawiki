@@ -1,0 +1,13 @@
+|-
+|style="vertical-align:top;"|[[{{{1}}}]]<br/>{{{2}}}
+|style="vertical-align:top;"|{{#ask:[[-Has subobject::{{{1}}}]][[AnnotationPredicate::+]]
+|mainlabel=-
+|?AnnotationPredicate
+|?AnnotationObject
+|?AnnotationType
+|sort=AnnotationPredicate
+|format=template
+|template=AnnotationResultItem
+|link=none
+}}
+|-
