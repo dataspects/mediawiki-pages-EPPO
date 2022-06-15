@@ -32,7 +32,7 @@ function collect(property, graphData)
 					end
 				end
 			end
-			insertSubjectNode(subjectName, subjectData[2], result, subjectNodeProperties, graphData)
+			insertSubjectNode(subjectData[1], subjectData[2], result, subjectNodeProperties, graphData)
 		end
 	end
 end
