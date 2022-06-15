@@ -2,8 +2,8 @@
 
 This package implements the virtues of [Every Page is Page One](https://everypageispageone.com/the-book/), which are for information topics to *conform to a type*, *stay on one level* and to *link richly*. EPPO formalizes a way to **add information** to your knowledge base **as topics**.
 
-&rarr; **[Use Cases Documentation](https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main/doc.html
-)**
+&rarr; **[Use Cases Documentation](https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main/doc.html)**<sup>1</sup><br/>
+&rarr; **[Custom Cypress Commands](https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main/commands.html)**<sup>1</sup>
 
 ## Features
 
@@ -27,3 +27,4 @@ $wgPageFormsLinkAllRedLinksToForms = true;
 
 * Consider automating the addition of a new EPPO topic type (#LEX2206031136)
 
+<sup>1</sup> Created by https://github.com/dataspects/MVP/blob/main/test_parse_cypress_tests.py
