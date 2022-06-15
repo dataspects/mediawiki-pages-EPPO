@@ -20,12 +20,12 @@ function collect(property, graphData)
 	if type( query ) == "table" then
 		-- https://github.com/SemanticMediaWiki/SemanticScribunto/blob/master/docs/mw.smw.getQueryResult.md
 		for k, result in pairs( query.results ) do
-			subjectData = getSubjectData(result, nodeLabelFromPredicate)
+			subjectData = getPageData(result, nodeLabelFromPredicate)
 			subjectNodeProperties = {}
 			for predicateName, objects in pairs( result["printouts"] ) do
 				if type ( objects[1] ) == "table" then
 					-- it's a relationship
-					insertObjectNode(subjectData[1], predicateName, objects, graphData)
+					insertObjectNode(subjectData[1], predicateName, nodeLabelFromPredicate, objects, graphData)
 				else
 					table.insert(subjectNodeProperties, predicateName)
 				end
@@ -35,7 +35,18 @@ function collect(property, graphData)
 	end
 end
 
-function getSubjectData(result, nodeLabelFromPredicate)
+function getSinglePageProperties(pageName, property)
+	local query = mw.smw.getQueryResult("[[" .. pageName .. "]]|?" .. property)
+	if type( query ) == "table" then
+		for k, result in pairs( query.results ) do
+			subjectData = getPageData(result, property)
+			return subjectData
+		end
+	end
+end
+
+
+function getPageData(result, nodeLabelFromPredicate)
 	subjectName = result.fulltext
 	nodeLabel = subjectName
 	for predicateName, objects in pairs( result["printouts"] ) do
@@ -61,11 +72,12 @@ function insertSubjectNode(subjectName, subjectTitle, result, subjectNodePropert
 	table.insert(graphData, node(subjectName, subjectTitle, subjectNodeProperties))
 end
 
-function insertObjectNode(subjectName, predicateName, objects, graphData)
+function insertObjectNode(subjectName, predicateName, nodeLabelFromPredicate, objects, graphData)
 	objectName = objects[1]["fulltext"]
 	-- FIXME: the object title must correspond with nodeLabelFromPredicate
-	table.insert(graphData, node(objectName, objects[1]["displaytitle"], {}))
-	table.insert(graphData, subjectName .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectName)
+	objectData = getSinglePageProperties(objectName, nodeLabelFromPredicate)
+	table.insert(graphData, node(objectData[1], objectData[2], {}))
+	table.insert(graphData, subjectName .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectData[1])
 end
 
 function collectProperties(selectingStatement)
