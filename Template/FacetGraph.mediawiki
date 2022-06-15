@@ -1,5 +1,7 @@
-<includeonly>{{#mermaid:
+<includeonly>
+For topic types connected by properties from namespace ''{{{forPropertiesFromThisNamespace}}}'' grouped by their ''{{{usingThisPropertyAsNodeLabels}}}''.
+{{#mermaid:
   graph LR
-    {{#arraymaptemplate:{{#ask:[[{{{1}}}::+]]|format=array|link=none|limit=5| searchlabel=|sep=,}}|MermaidNode|,|\n\n}}
-    {{#arraymaptemplate:{{#ask:[[{{{1}}}::+]]|format=array|link=none|limit=5| searchlabel=|sep=,}}|MermaidEdge|,|\n\n}}
-}}</includeonly>
+  {{#invoke:FacetGraph|show|[[Property:+]][[ds0:namespace::{{{forPropertiesFromThisNamespace}}}]]|{{{usingThisPropertyAsNodeLabels}}}}}
+}}
+</includeonly>
