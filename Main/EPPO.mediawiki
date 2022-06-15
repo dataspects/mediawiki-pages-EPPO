@@ -52,6 +52,7 @@ Duplicate pages
  UntypedTopic
  Template:UntypedTopic
  Form:UntypedTopic
+ Category:UntypedTopic
 replacing UntypedTopic with the new EPPO topic name. (#LEX2206031136)
 
 <headertabs/>
