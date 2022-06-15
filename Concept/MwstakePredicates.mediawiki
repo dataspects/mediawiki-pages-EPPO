@@ -1,5 +1,5 @@
 {{Concept|ds0_active=true}}
 
 {{#concept:
- [[Property:+]][[ds0:namespace::+]]
+ [[Property:+]] [[Ds0:namespace::Mwstake]]
 }}
