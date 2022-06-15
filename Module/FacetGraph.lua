@@ -27,7 +27,9 @@ function collect(property, graphData)
 					-- it's a relationship
 					insertObjectNode(subjectData[1], predicateName, nodeLabelFromPredicate, objects, graphData)
 				else
-					table.insert(subjectNodeProperties, predicateName)
+					if split(predicateName, ":")[1] ~= "Eppo0" then -- filter out eppo0 in case it was used as nodeLabelFromPredicate
+						table.insert(subjectNodeProperties, predicateName)
+					end
 				end
 			end
 			insertSubjectNode(subjectName, subjectData[2], result, subjectNodeProperties, graphData)
