@@ -30,9 +30,9 @@ const wait = 500;
 
 Cypress.Commands.add("mediawiki_login", (username, password) => {
   cy.visit("/w/index.php?title=Special:UserLogin");
-  cy.get("#wpName1").type(username);
-  cy.get("#wpPassword1").type(password);
-  cy.get("#wpLoginAttempt").click();
+  cy.get("input#wpName1").type(username);
+  cy.get("input#wpPassword1").type(password);
+  cy.get("button#wpLoginAttempt").click();
 });
 
 Cypress.Commands.add("pageForm_cancel", () => {
@@ -102,4 +102,9 @@ Cypress.Commands.add("dataspects_initializeOrViewProperty", (predicateName) => {
         cy.pageForm_savePage();
       }
     });
+});
+
+Cypress.Commands.add("click_headerTab", (headerTab) => {
+  cy.wait(1000); // ? Unnecessary accroding to https://docs.cypress.io/guides/references/best-practices
+  cy.get("span.oo-ui-labelElement-label").contains(headerTab).click();
 });

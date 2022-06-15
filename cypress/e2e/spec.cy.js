@@ -1,11 +1,16 @@
 describe("EPPO", () => {
-  it("should list all EPPO topic types", () => {
+  it.only("should list EPPO aspects", () => {
     cy.mediawiki_login("lex", "globi2000globi");
     cy.visit("/wiki/EPPO");
     // #MWSTAKEBP: top-level aspects should be organized in sections
-    cy.get("h2").contains("All EPPO topic types");
+    cy.click_headerTab("All EPPO topic types");
+    cy.screenshot("All-EPPO-topic-types");
+    cy.click_headerTab("All EPPO topics");
+    cy.screenshot("All-EPPO-topics");
+    cy.click_headerTab("Facet Graph");
+    cy.screenshot("Facet-Graph");
   });
-  it.only("allows a user to add an instance of a EPPO topic type", () => {
+  it("allows a user to add an instance of a EPPO topic type", () => {
     cy.mediawiki_login("lex", "globi2000globi");
     // Fill in form and save
     cy.visit("/w/index.php?title=Special:FormEdit/UseCase");
