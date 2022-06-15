@@ -1,5 +1,5 @@
 describe("EPPO", () => {
-  it.only("should list EPPO aspects", () => {
+  it("should list EPPO aspects", () => {
     cy.mediawiki_login("lex", "globi2000globi");
     cy.visit("/wiki/EPPO");
     // #MWSTAKEBP: top-level aspects should be organized in sections
@@ -22,13 +22,13 @@ describe("EPPO", () => {
       "Property:Mwstake:use case category",
       "objectName0"
     );
-    // cy.eppoForm_addAProperty(predicateName, "objectName1");
     cy.screenshot("Add-dynamic-properties-in-EPPO-form");
     cy.pageForm_savePage();
     cy.mediawiki_refresh();
     // View existing or initialize new property
-    // cy.dataspects_initializeOrViewProperty(predicateName);
+    cy.dataspects_initializeOrViewProperty("Mwstake:use case category");
     cy.mediawiki_refresh();
+    cy.screenshot("Property-page");
   });
 
   it("allows a user to refresh a page", () => {
