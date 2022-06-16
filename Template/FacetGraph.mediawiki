@@ -1,7 +1,7 @@
 <includeonly>
-For topic types connected by properties from namespaces ''{{{forPropertiesFromTheseNamespaces}}}'' grouped by their ''{{{usingThisPropertyAsNodeLabels}}}''.
+For topic types connected by properties from namespace ''{{{forPropertiesFromTheseNamespaces}}}'' grouped by their ''{{{usingThisPropertyAsNodeLabels}}}''.
 {{#mermaid:
   graph LR
-  {{#invoke:FacetGraph|show|[[Property:+]][[ds0:namespace::{{{forPropertiesFromTheseNamespaces}}}]]|{{{usingThisPropertyAsNodeLabels}}}}}
+  {{#invoke:FacetGraph|show|[[Property:+]][[ds0:namespace::{{#replace:{{{forPropertiesFromTheseNamespaces}}}|,|{{!}}{{!}}}}]]|{{{usingThisPropertyAsNodeLabels}}}}}
 }}
 </includeonly>
