@@ -9,7 +9,14 @@
                 <link rel="stylesheet" href="style.css">
             </head>
             <body>
-                <script src="index.js"></script>
+                
+            <script>
+                function toggleImage(imageID) {
+                    var img = document.querySelector(`#${imageID}`);
+                    img.classList.toggle('hide');
+                }
+            </script>
+         
                 
         <img src="https://mwstake.org/mwstake/branding/logo.png" style="width:50px;"/>
         <ol>
@@ -28,11 +35,20 @@
     <div class='left40'><span class='goto'>Go to</span> /wiki/EPPO</div>
 <div class='left40 comment'>    #MWSTAKEBP: top-level aspects should be organized in sections</div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for click_headerTab'>click_headerTab</a>(<span class='arguments'></span>)</div>
-    <div class='left60'><span class='screenshot'>&rarr; Screenshot: </span> All-EPPO-topic-types</div>
+    
+                    <div class='left60' style='cursor: help;' onmouseover="toggleImage('All-EPPO-topic-types')" onmouseout="toggleImage('All-EPPO-topic-types')">
+                        <span class='screenshot'>&rarr; Screenshot: </span> All-EPPO-topic-types
+                    </div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for click_headerTab'>click_headerTab</a>(<span class='arguments'></span>)</div>
-    <div class='left60'><span class='screenshot'>&rarr; Screenshot: </span> All-EPPO-topics</div>
+    
+                    <div class='left60' style='cursor: help;' onmouseover="toggleImage('All-EPPO-topics')" onmouseout="toggleImage('All-EPPO-topics')">
+                        <span class='screenshot'>&rarr; Screenshot: </span> All-EPPO-topics
+                    </div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for click_headerTab'>click_headerTab</a>(<span class='arguments'></span>)</div>
-    <div class='left60'><span class='screenshot'>&rarr; Screenshot: </span> Facet-Graph</div>
+    
+                    <div class='left60' style='cursor: help;' onmouseover="toggleImage('Facet-Graph')" onmouseout="toggleImage('Facet-Graph')">
+                        <span class='screenshot'>&rarr; Screenshot: </span> Facet-Graph
+                    </div>
 <div class='left20'><span class='feature'>Use Case</span>: <b>it allows a user to add an instance of a EPPO topic type</b></div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for mediawiki_login'>mediawiki_login</a>(<span class='arguments'></span>)</div>
 <div class='left40 comment'>    Fill in form and save</div>
@@ -40,27 +56,39 @@
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for eppoForm_editTitle'>eppoForm_editTitle</a>(<span class='arguments'></span>)</div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for eppoForm_editBlurb'>eppoForm_editBlurb</a>(<span class='arguments'></span>)</div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for eppoForm_editFreeText'>eppoForm_editFreeText</a>(<span class='arguments'></span>)</div>
-    <div class='left60'><span class='screenshot'>&rarr; Screenshot: </span> Fill-in-standard-properties-in-EPPO-form</div>
+    
+                    <div class='left60' style='cursor: help;' onmouseover="toggleImage('Fill-in-standard-properties-in-EPPO-form')" onmouseout="toggleImage('Fill-in-standard-properties-in-EPPO-form')">
+                        <span class='screenshot'>&rarr; Screenshot: </span> Fill-in-standard-properties-in-EPPO-form
+                    </div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for eppoForm_addAProperty'>eppoForm_addAProperty</a>(<span class='arguments'></span>)</div>
-    <div class='left60'><span class='screenshot'>&rarr; Screenshot: </span> Add-dynamic-properties-in-EPPO-form</div>
+    
+                    <div class='left60' style='cursor: help;' onmouseover="toggleImage('Add-dynamic-properties-in-EPPO-form')" onmouseout="toggleImage('Add-dynamic-properties-in-EPPO-form')">
+                        <span class='screenshot'>&rarr; Screenshot: </span> Add-dynamic-properties-in-EPPO-form
+                    </div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for pageForm_savePage'>pageForm_savePage</a>(<span class='arguments'></span>)</div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for mediawiki_refresh'>mediawiki_refresh</a>(<span class='arguments'></span>)</div>
 <div class='left40 comment'>    View existing or initialize new property</div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for dataspects_initializeOrViewProperty'>dataspects_initializeOrViewProperty</a>(<span class='arguments'></span>)</div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for mediawiki_refresh'>mediawiki_refresh</a>(<span class='arguments'></span>)</div>
-    <div class='left60'><span class='screenshot'>&rarr; Screenshot: </span> Property-page</div>
+    
+                    <div class='left60' style='cursor: help;' onmouseover="toggleImage('Property-page')" onmouseout="toggleImage('Property-page')">
+                        <span class='screenshot'>&rarr; Screenshot: </span> Property-page
+                    </div>
 
 <div class='left20'><span class='feature'>Use Case</span>: <b>it allows a user to refresh a page</b></div>
     <div class='left40'><span class='do'>Do</span> <a href='https://htmlpreview.github.io/?https://github.com/dataspects/mediawiki-pages-EPPO/blob/main//commands.html' class='command' title='Click to get an explanation for mediawiki_refresh'>mediawiki_refresh</a>(<span class='arguments'></span>)</div>
 
                 </td><td>
-                    <figure><figcaption>All-EPPO-topic-types</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/All-EPPO-topic-types.png" /><figcaption>All-EPPO-topic-types</figcaption></figure><hr/><figure><figcaption>All-EPPO-topics</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/All-EPPO-topics.png" /><figcaption>All-EPPO-topics</figcaption></figure><hr/><figure><figcaption>Facet-Graph</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Facet-Graph.png" /><figcaption>Facet-Graph</figcaption></figure><hr/><figure><figcaption>Fill-in-standard-properties-in-EPPO-form</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Fill-in-standard-properties-in-EPPO-form.png" /><figcaption>Fill-in-standard-properties-in-EPPO-form</figcaption></figure><hr/><figure><figcaption>Add-dynamic-properties-in-EPPO-form</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Add-dynamic-properties-in-EPPO-form.png" /><figcaption>Add-dynamic-properties-in-EPPO-form</figcaption></figure><hr/><figure><figcaption>Property-page</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Property-page.png" /><figcaption>Property-page</figcaption></figure>
+                    <figure id="All-EPPO-topic-types" class="hide"><figcaption>All-EPPO-topic-types</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/All-EPPO-topic-types.png" /><figcaption>All-EPPO-topic-types</figcaption></figure><figure id="All-EPPO-topics" class="hide"><figcaption>All-EPPO-topics</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/All-EPPO-topics.png" /><figcaption>All-EPPO-topics</figcaption></figure><figure id="Facet-Graph" class="hide"><figcaption>Facet-Graph</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Facet-Graph.png" /><figcaption>Facet-Graph</figcaption></figure><figure id="Fill-in-standard-properties-in-EPPO-form" class="hide"><figcaption>Fill-in-standard-properties-in-EPPO-form</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Fill-in-standard-properties-in-EPPO-form.png" /><figcaption>Fill-in-standard-properties-in-EPPO-form</figcaption></figure><figure id="Add-dynamic-properties-in-EPPO-form" class="hide"><figcaption>Add-dynamic-properties-in-EPPO-form</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Add-dynamic-properties-in-EPPO-form.png" /><figcaption>Add-dynamic-properties-in-EPPO-form</figcaption></figure><figure id="Property-page" class="hide"><figcaption>Property-page</figcaption><img class="screenshotPNG" src="https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/main/readme_images/Property-page.png" /><figcaption>Property-page</figcaption></figure>
                 </td></tr></table>
             </body>
             </html>
             
         
             <style>
+                .hide {
+                    display: none;
+                }
                 body {
                     font-family:Sans-serif;
                     line-height:150%;

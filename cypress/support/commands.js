@@ -28,6 +28,11 @@
 
 const wait = 500;
 
+Cypress.Commands.add("takeScreenshot", (imageName) => {
+  cy.wait(1000);
+  cy.screenshot(imageName);
+});
+
 Cypress.Commands.add("mediawiki_login", (username, password) => {
   cy.visit("/w/index.php?title=Special:UserLogin");
   cy.get("input#wpName1").type(username);
