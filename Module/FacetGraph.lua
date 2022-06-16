@@ -32,7 +32,9 @@ function collect(property, graphData)
 					end
 				end
 			end
-			insertSubjectNode(subjectData[1], subjectData[2], result, subjectNodeProperties, graphData)
+			if split(subjectData[1], ":")[1] ~= "Property" then -- exclude pages from namespace Property
+				insertSubjectNode(subjectData[1], subjectData[2], result, subjectNodeProperties, graphData)
+			end
 		end
 	end
 end
@@ -48,26 +50,32 @@ function getSinglePageProperties(pageName, property)
 end
 
 
-function getPageData(result, nodeLabelFromPredicate)
-	subjectName = result.fulltext
-	nodeLabel = subjectName
+function getPageData(result, nodeLabelFromPredicate) -- nodeLabelFromPredicate e.g. = Eppo0:hasEntityType
+	pageName = result.fulltext
+	nodeLabel = pageName -- SET: by default the nodeLabel = pageName
 	for predicateName, objects in pairs( result["printouts"] ) do
 		if type ( objects[1] ) ~= "table" then
 			if predicateName == nodeLabelFromPredicate then
-				nodeLabel = objects[1]
+				-- FACT: 	the current page always features a Eppo0:hasEntityType because
+				--			it's requested in the query!
+				if objects[1] then
+					nodeLabel = objects[1] -- SET: the nodeLabel is set to Eppo0:hasEntityType's value
+				end
 			end
 		end
 	end
-	subjectTitle = subjectName
-	if nodeLabel == subjectName then
+	subjectTitle = pageName -- SET: by default the subjectTitle = pageName
+
+	if nodeLabel == pageName then
 		if result.displaytitle ~= "" then
+			-- FACT: the current page features a displaytitle
 			subjectTitle = result.displaytitle
 		end
 	else
 		subjectTitle = nodeLabel
-		subjectName = nodeLabel
+		pageName = nodeLabel
 	end
-	return {subjectName, subjectTitle}
+	return {pageName, subjectTitle}
 end
 
 function insertSubjectNode(subjectName, subjectTitle, result, subjectNodeProperties, graphData)

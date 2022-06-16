@@ -1,13 +1,4 @@
-<includeonly>
-{|
+<includeonly>{|
 |style="vertical-align:top;"|<div style="font-size: 20px; margin: 0px 0px 20px 0px; background-color: #F8F8F8; padding: 5px; border-radius: 3px;">{{{eppo0:hasEntityBlurb}}}</div>
 |style="vertical-align:top;padding-top:5px;"|{{AnnotationsList}}
-|}
-{{#set:eppo0:hasEntityTitle={{{eppo0:hasEntityTitle}}}}}
-{{#set:eppo0:hasEntityType={{{eppo0:hasEntityType}}}}}
-{{#set:eppo0:hasEntityBlurb={{{eppo0:hasEntityBlurb}}}}}
-{{DISPLAYTITLE:{{{eppo0:hasEntityType}}} "{{{eppo0:hasEntityTitle}}}"}}
-{{#default_form:{{{eppo0:hasEntityType}}}}}
-[[Category:Topic]]
-[[Category:{{{eppo0:hasEntityType}}}]]
-</includeonly>
+|}{{#set:eppo0:hasEntityTitle={{{eppo0:hasEntityTitle}}}}}{{#set:eppo0:hasEntityType={{{eppo0:hasEntityType}}}}}{{#set:eppo0:hasEntityBlurb={{{eppo0:hasEntityBlurb}}}}}{{DISPLAYTITLE:{{{eppo0:hasEntityType}}} "{{{eppo0:hasEntityTitle}}}"}}{{#default_form:{{{eppo0:hasEntityType}}}}}[[Category:Topic]][[Category:{{{eppo0:hasEntityType}}}]]</includeonly>

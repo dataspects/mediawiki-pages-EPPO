@@ -48,7 +48,7 @@ See [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Special:AllPages&from=&to=&namespa
 
 = Facet Graph =
 
-{{FacetGraph|forPropertiesFromThisNamespace=Mwstake|usingThisPropertyAsNodeLabels=Eppo0:hasEntityType}}
+{{FacetGraph|forPropertiesFromTheseNamespaces=Eppo0,Mwstake|usingThisPropertyAsNodeLabels=Eppo0:hasEntityType}}
 
 = How to add a new EPPO topic type =
 
