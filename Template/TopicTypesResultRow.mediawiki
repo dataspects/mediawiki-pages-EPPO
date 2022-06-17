@@ -2,8 +2,5 @@
 |'''[[{{{1}}}]]''' ({{#ask:[[eppo0:hasEntityType::{{{1}}}]]|format=count}})
 |
 * [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Special:FormEdit/{{#replace:{{{1}}}| |_}} Add new]
-|
-* [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Template:{{#replace:{{{1}}}| |_}} Template]
-* [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Form:{{#replace:{{{1}}}| |_}} Form]
-* [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Category:{{#replace:{{{1}}}| |_}} Category]
+|[{{SERVER}}{{SCRIPTPATH}}/index.php?title=Template:{{#replace:{{{1}}}| |_}} Template] [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Form:{{#replace:{{{1}}}| |_}} Form] [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Category:{{#replace:{{{1}}}| |_}} Category]
 |-
