@@ -3,7 +3,7 @@
 {{{for template|PropertyPage}}}
   {|class=formtable
     !SMWHasType
-    |{{{field|SMWHasType|input type=dropdown|values=Text,URL,Page,Date,Boolean,Code|default=Text}}}
+    |Fixed to text due to [[C1610527781]].{{{field|SMWHasType|input type=dropdown|values=Text,URL,Page,Date,Boolean,Code|default=Text|hidden}}}
     |-
     !PredicateClass
     |{{{field|PredicateClass|input type=dropdown|values=Property,ActiveAction,PassiveAction|default=Property}}}
