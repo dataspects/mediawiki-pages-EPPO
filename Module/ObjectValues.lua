@@ -41,7 +41,7 @@ function allEPPOPages()
 end
 
 function collectObjectValues(property)
-	local objectValuesQuery = mw.smw.getQueryResult("[[" .. property .. "::+]]|?" .. property)
+	local objectValuesQuery = mw.smw.getQueryResult("[[" .. property .. "::+]]|?" .. property .. "|link=none")
 	local predicateAndItsObjects = {}
 	if type( objectValuesQuery ) == "table" then
 		for pageName, pageData in pairs( objectValuesQuery.results ) do
@@ -53,7 +53,13 @@ function collectObjectValues(property)
 	    for predicateName, objects in pairs( paios ) do
           if type ( objects[1] ) ~= "table" then
             -- these are just the literal object values, page names are handled by allEPPOPages()
-            table.insert(objectValues, objects[1])
+            url = objects[1]:match('^https?://(.*)') -- FIXME!
+            -- If for now we do not remove ^https?://, then <a href... will be wrapped around and break the form.
+            if url then
+            	table.insert(objectValues, url)
+            else
+            	table.insert(objectValues, objects[1])
+            end
           end
 	    end
 	end
