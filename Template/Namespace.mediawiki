@@ -1,2 +1,1 @@
-<includeonly>{{TopicMetaTemplate|eppo0:hasEntityTitle={{{eppo0:hasEntityTitle|}}}|eppo0:hasEntityBlurb={{{eppo0:hasEntityBlurb|}}}|eppo0:hasEntityType=Aspect}}
-</includeonly>
+{{PAGENAME}}
