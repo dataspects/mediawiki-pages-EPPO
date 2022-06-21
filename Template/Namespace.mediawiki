@@ -1,2 +1,2 @@
-{{PAGENAME}}
+{{#ask:[[Property:+]][[ds0:namespace::{{PAGENAME}}]]|format=ul}}
 [[Category:Namespace]]
