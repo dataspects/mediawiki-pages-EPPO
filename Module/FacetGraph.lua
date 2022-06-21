@@ -28,7 +28,7 @@ function collect(property, graphData)
 						-- it's a relationship
 						insertObjectNode(subjectData[1], predicateName, nodeLabelFromPredicate, objects, graphData)
 					else
-						table.insert(subjectNodeProperties, predicateName)
+						table.insert(subjectNodeProperties, '<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>")
 					end
 				end
 			end
