@@ -23,11 +23,11 @@ function collect(property, graphData)
 			subjectData = getPageData(result, nodeLabelFromPredicate)
 			subjectNodeProperties = {}
 			for predicateName, objects in pairs( result["printouts"] ) do
-				if type ( objects[1] ) == "table" then
-					-- it's a relationship
-					insertObjectNode(subjectData[1], predicateName, nodeLabelFromPredicate, objects, graphData)
-				else
-					if split(predicateName, ":")[1] ~= "Eppo0" then -- filter out eppo0 in case it was used as nodeLabelFromPredicate
+				if split(predicateName, ":")[1] ~= "Eppo0" then -- filter out eppo0 in case it was used as nodeLabelFromPredicate
+					if pageExists (objects[1]) then
+						-- it's a relationship
+						insertObjectNode(subjectData[1], predicateName, nodeLabelFromPredicate, objects, graphData)
+					else
 						table.insert(subjectNodeProperties, predicateName)
 					end
 				end
@@ -36,6 +36,24 @@ function collect(property, graphData)
 				insertSubjectNode(subjectData[1], subjectData[2], result, subjectNodeProperties, graphData)
 			end
 		end
+	end
+end
+
+function pageExists(pageName)
+	if pageName == nil then
+		return false
+	else
+		local query = mw.smw.getQueryResult("[[" .. pageName .. "]]")
+		if type( query ) == "table" then
+			if next (query.results) == nil then
+				return false
+			end
+			if query.results[1].exists == "" then
+				return false
+			end
+			return true
+		end
+		return false
 	end
 end
 
@@ -83,7 +101,7 @@ function insertSubjectNode(subjectName, subjectTitle, result, subjectNodePropert
 end
 
 function insertObjectNode(subjectName, predicateName, nodeLabelFromPredicate, objects, graphData)
-	objectName = objects[1]["fulltext"]
+	objectName = objects[1]
 	-- FIXME: the object title must correspond with nodeLabelFromPredicate
 	objectData = getSinglePageProperties(objectName, nodeLabelFromPredicate)
 	table.insert(graphData, node(objectData[1], objectData[2], {}))
