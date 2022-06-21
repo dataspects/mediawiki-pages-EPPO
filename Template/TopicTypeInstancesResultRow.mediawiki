@@ -1,6 +1,6 @@
 <includeonly>|-
-|width=50% style="border-top:1px solid green;"|<span style="font-size:20px;">'''[[{{{1}}}|{{#getdisplaytitle:{{{1}}}}}]]'''</span><br>
-''{{{2}}}''
+|width=50% style="border-top:1px solid green;"|<span style="font-size:20px;">'''[[{{{1}}}|{{#getdisplaytitle:{{{1}}}}}]]'''</span><br/>
+{{#if:{{{2|}}}|''{{{2}}}''|}}
 |{{#ask:[[-Has subobject::{{{1}}}]][[AnnotationPredicate::+]]
 |mainlabel=-
 |?AnnotationPredicate
