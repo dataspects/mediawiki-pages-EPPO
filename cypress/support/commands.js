@@ -113,3 +113,7 @@ Cypress.Commands.add("click_headerTab", (headerTab) => {
   cy.wait(1000); // ? Unnecessary accroding to https://docs.cypress.io/guides/references/best-practices
   cy.get("span.oo-ui-labelElement-label").contains(headerTab).click();
 });
+
+Cypress.Commands.add("showHelpingHints", () => {
+  cy.get("#mwstakeHelpHintButton").click();
+});

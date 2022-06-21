@@ -1,6 +1,7 @@
 describe("EPPO", () => {
+  let login = ["lex", "globi2000globi"];
   it("should list EPPO aspects", () => {
-    cy.mediawiki_login("lex", "globi2000globi");
+    cy.mediawiki_login(login[0], login[1]);
     cy.visit("/wiki/EPPO");
     // #MWSTAKEBP: top-level aspects should be organized in sections
     cy.click_headerTab("All EPPO topic types");
@@ -11,7 +12,7 @@ describe("EPPO", () => {
     cy.takeScreenshot("Facet-Graph");
   });
   it("allows a user to add an instance of a EPPO topic type", () => {
-    cy.mediawiki_login("lex", "globi2000globi");
+    cy.mediawiki_login(login[0], login[1]);
     // Fill in form and save
     cy.visit("/w/index.php?title=Special:FormEdit/UseCase");
     cy.eppoForm_editTitle("My use case title", "UseCase");
@@ -30,8 +31,13 @@ describe("EPPO", () => {
     cy.mediawiki_refresh();
     cy.takeScreenshot("Property-page");
   });
-
   it("allows a user to refresh a page", () => {
     cy.mediawiki_refresh();
+  });
+  it.only("allows a user to show helping hints", () => {
+    cy.mediawiki_login(login[0], login[1]);
+    cy.visit("/wiki/Main_Page");
+    cy.showHelpingHints();
+    cy.takeScreenshot("Helping-Hints");
   });
 });
