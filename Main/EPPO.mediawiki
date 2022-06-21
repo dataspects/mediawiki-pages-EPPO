@@ -41,6 +41,8 @@ __TOC__
 
 {{#ask:[[Concept:+]][[ds0:active::true]]|format=ul}}
 
+== All namespaces ==
+
 == All modules ==
 
 See [{{SERVER}}{{SCRIPTPATH}}/index.php?title=Special:AllPages&from=&to=&namespace=828 all modules]
