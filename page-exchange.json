@@ -96,6 +96,11 @@
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/TopicTypeCategory.mediawiki"
         },
         {
+          "name": "TranscludeOverview",
+          "namespace": "NS_TEMPLATE",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/TranscludeOverview.mediawiki"
+        },
+        {
           "name": "Namespace",
           "namespace": "NS_TEMPLATE",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Template/Namespace.mediawiki"
