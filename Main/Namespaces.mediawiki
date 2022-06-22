@@ -1,0 +1,1 @@
+{{#ask:[[Category:Namespace]]|template=NamespaceItem|link=none}}
