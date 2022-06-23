@@ -1,7 +1,1 @@
-{{#mermaid:
-  graph LR
-    {{#arraymaptemplate:{{#ask:[[Eppo0:hasEntityType::+]]|format=array|link=none|limit=5| searchlabel=|sep=,}}|MermaidNode|,|\n\n}}
-    {{#arraymaptemplate:{{#ask:[[Eppo0:hasEntityType::+]]|format=array|link=none|limit=5| searchlabel=|sep=,}}|MermaidEdge|,|\n\n}}
-}}
-
 {{TopicType}}
