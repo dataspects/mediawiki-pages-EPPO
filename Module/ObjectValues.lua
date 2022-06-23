@@ -58,7 +58,10 @@ function collectObjectValues(property)
             if url then
             	table.insert(objectValues, url)
             else
-            	table.insert(objectValues, objects[1])
+            	validValue = objects[1]:match('<a') -- Filter out object values that break the Page Forms dropdown
+            	if validValue == nil then
+            		table.insert(objectValues, validValue)
+            	end
             end
           end
 	    end
