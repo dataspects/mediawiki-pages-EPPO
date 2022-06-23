@@ -165,6 +165,11 @@
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Category/Property.mediawiki"
         },
         {
+          "name": "Backstage",
+          "namespace": "NS_CATEGORY",
+          "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Category/Backstage.mediawiki"
+        },
+        {
           "name": "eppo0:hasEntityTitle",
           "namespace": "SMW_NS_PROPERTY",
           "url": "https://raw.githubusercontent.com/dataspects/mediawiki-pages-EPPO/master/Property/eppo0:hasEntityTitle.mediawiki"

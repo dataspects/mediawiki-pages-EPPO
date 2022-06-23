@@ -1,1 +1,1 @@
-What links here?
+'''What links here?'''
