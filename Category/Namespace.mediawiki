@@ -1,0 +1,3 @@
+Pages in {{FULLPAGENAME}} do not represent the https://www.mediawiki.org/wiki/Help:Namespaces, but they explain the "content" namespaces:
+
+{{#ask:[[Category:Namespace]]|format=ul}}
