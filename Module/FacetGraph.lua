@@ -20,16 +20,15 @@ function collect(property, graphData)
 	if type( query ) == "table" then
 		-- https://github.com/SemanticMediaWiki/SemanticScribunto/blob/master/docs/mw.smw.getQueryResult.md
 		for k, result in pairs( query.results ) do
-			subjectData = getPageData(result, nodeLabelFromPredicate)
+			local subjectData = getPageData(result, nodeLabelFromPredicate)
 			subjectNodeProperties = {}
 			for predicateName, objects in pairs( result["printouts"] ) do
 				if split(predicateName, ":")[1] ~= "Eppo0" then -- filter out eppo0 in case it was used as nodeLabelFromPredicate
 					for _, object in ipairs(objects) do
 						if pageExists (object) then
 							-- it's a relationship
-							insertObjectNode(subjectData[1], predicateName, nodeLabelFromPredicate, object, graphData)
+							insertObjectNode(subjectData, predicateName, nodeLabelFromPredicate, object, graphData)
 						else
-							-- FIXME: this gets assigned to the object node instead of the subject node!?
 							table.insert(subjectNodeProperties, '<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>")
 						end
 					end
@@ -103,10 +102,10 @@ function insertSubjectNode(subjectName, subjectTitle, result, subjectNodePropert
 	table.insert(graphData, node(subjectName, subjectTitle, subjectNodeProperties))
 end
 
-function insertObjectNode(subjectName, predicateName, nodeLabelFromPredicate, object, graphData)
+function insertObjectNode(subjectData, predicateName, nodeLabelFromPredicate, object, graphData)
 	-- FIXME: the object title must correspond with nodeLabelFromPredicate
 	objectData = getSinglePageProperties(object, nodeLabelFromPredicate)
-	table.insert(graphData, subjectName .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectData[1])
+	table.insert(graphData, subjectData[1] .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectData[1])
 end
 
 function collectProperties(selectingStatement)
