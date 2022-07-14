@@ -24,11 +24,14 @@ function collect(property, graphData)
 			subjectNodeProperties = {}
 			for predicateName, objects in pairs( result["printouts"] ) do
 				if split(predicateName, ":")[1] ~= "Eppo0" then -- filter out eppo0 in case it was used as nodeLabelFromPredicate
-					if pageExists (objects[1]) then
-						-- it's a relationship
-						insertObjectNode(subjectData[1], predicateName, nodeLabelFromPredicate, objects, graphData)
-					else
-						table.insert(subjectNodeProperties, '<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>")
+					for _, object in ipairs(objects) do
+						if pageExists (object) then
+							-- it's a relationship
+							insertObjectNode(subjectData[1], predicateName, nodeLabelFromPredicate, object, graphData)
+						else
+							-- FIXME: this gets assigned to the object node instead of the subject node!?
+							table.insert(subjectNodeProperties, '<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>")
+						end
 					end
 				end
 			end
@@ -100,11 +103,9 @@ function insertSubjectNode(subjectName, subjectTitle, result, subjectNodePropert
 	table.insert(graphData, node(subjectName, subjectTitle, subjectNodeProperties))
 end
 
-function insertObjectNode(subjectName, predicateName, nodeLabelFromPredicate, objects, graphData)
-	objectName = objects[1]
+function insertObjectNode(subjectName, predicateName, nodeLabelFromPredicate, object, graphData)
 	-- FIXME: the object title must correspond with nodeLabelFromPredicate
-	objectData = getSinglePageProperties(objectName, nodeLabelFromPredicate)
-	table.insert(graphData, node(objectData[1], objectData[2], {}))
+	objectData = getSinglePageProperties(object, nodeLabelFromPredicate)
 	table.insert(graphData, subjectName .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectData[1])
 end
 
