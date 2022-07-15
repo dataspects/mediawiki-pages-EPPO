@@ -6,36 +6,71 @@ local p = {}
 function p.show(frame)
 	local selectingStatement = frame.args[1]
 	nodeLabelFromPredicate = frame.args[2]
-	local properties = collectProperties(selectingStatement)
-	graphData = {}
-	for k, property in pairs(properties) do
-		collect(property, graphData, urlPrefix)
+	local propertiesMatchingSelectingStatement = collectProperties(selectingStatement)
+	nodes = {}
+	edges = {}
+	gd = {}
+	for k, property in pairs(propertiesMatchingSelectingStatement) do
+		collectPages(property, nodes, urlPrefix) -- pages will turn up multiple times!
 	end
-	table.insert(graphData, "classDef default text-align:left")
-	return table.concat(arrayUnique(graphData), '\n\n')
+	for name, data in pairs(nodes) do
+		table.insert(gd, node(name, data))
+	end
+	for _, edge in ipairs(edges) do
+		table.insert(gd, edge)
+	end
+	table.insert(gd, "classDef default text-align:left")
+	return table.concat(gd, "\n")
 end
 
-function collect(property, graphData)
+function collectProperties(selectingStatement)
+	if not mw.smw then
+		return "mw.smw module not found"
+	end
+	local propertiesQuery = mw.smw.getQueryResult(selectingStatement)
+	if propertiesQuery == nil then
+		return "(no values)"
+	end
+
+	propertiesMatchingSelectingStatement = {}
+	if type( propertiesQuery ) == "table" then
+		for k,v in pairs( propertiesQuery.results ) do
+			property = split(v.fulltext, ":")
+			if property[3] then
+				propertyWithoutMWNamespace = property[2] .. ":" .. property[3]
+			else
+				-- non-namespaced predicate
+				propertyWithoutMWNamespace = property[2]
+			end
+			table.insert(propertiesMatchingSelectingStatement, propertyWithoutMWNamespace)
+		end
+	end
+
+	return propertiesMatchingSelectingStatement
+end
+
+function collectPages(property, nodes)
 	local query = mw.smw.getQueryResult("[[" .. property .. "::+]]|?" .. property .. "|?" .. nodeLabelFromPredicate)
 	if type( query ) == "table" then
 		-- https://github.com/SemanticMediaWiki/SemanticScribunto/blob/master/docs/mw.smw.getQueryResult.md
+		-- 
 		for k, result in pairs( query.results ) do
-			local subjectData = getPageData(result, nodeLabelFromPredicate)
-			subjectNodeProperties = {}
+			local subjectNodeData = getPageData(result, nodeLabelFromPredicate)
+			local subjectNodeProperties = {}
 			for predicateName, objects in pairs( result["printouts"] ) do
 				if split(predicateName, ":")[1] ~= "Eppo0" then -- filter out eppo0 in case it was used as nodeLabelFromPredicate
 					for _, object in ipairs(objects) do
 						if pageExists (object) then
 							-- it's a relationship
-							insertObjectNode(subjectData, predicateName, nodeLabelFromPredicate, object, graphData)
+							insertRelationship(subjectNodeData, predicateName, nodeLabelFromPredicate, object)
 						else
 							table.insert(subjectNodeProperties, '<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>")
 						end
 					end
 				end
 			end
-			if split(subjectData[1], ":")[1] ~= "Property" then -- exclude pages from namespace Property
-				insertSubjectNode(subjectData[1], subjectData[2], result, subjectNodeProperties, graphData)
+			if split(subjectNodeData[1], ":")[1] ~= "Property" then -- exclude pages from namespace Property
+				insertSubjectNode(subjectNodeData, result, subjectNodeProperties)
 			end
 		end
 	end
@@ -63,8 +98,8 @@ function getSinglePageProperties(pageName, property)
 	local query = mw.smw.getQueryResult("[[" .. pageName .. "]]|?" .. property)
 	if type( query ) == "table" then
 		for k, result in pairs( query.results ) do
-			subjectData = getPageData(result, property)
-			return subjectData
+			subjectNodeData = getPageData(result, property)
+			return subjectNodeData
 		end
 	end
 end
@@ -95,48 +130,31 @@ function getPageData(result, nodeLabelFromPredicate) -- nodeLabelFromPredicate e
 		subjectTitle = nodeLabel
 		pageName = nodeLabel
 	end
-	return {pageName, subjectTitle}
+	local nodeData = { pageName, subjectTitle }
+	return nodeData
 end
 
-function insertSubjectNode(subjectName, subjectTitle, result, subjectNodeProperties, graphData)
-	table.insert(graphData, node(subjectName, subjectTitle, subjectNodeProperties))
-end
-
-function insertObjectNode(subjectData, predicateName, nodeLabelFromPredicate, object, graphData)
-	-- FIXME: the object title must correspond with nodeLabelFromPredicate
-	objectData = getSinglePageProperties(object, nodeLabelFromPredicate)
-	table.insert(graphData, subjectData[1] .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectData[1])
-end
-
-function collectProperties(selectingStatement)
-	if not mw.smw then
-		return "mw.smw module not found"
-	end
-	local propertiesQuery = mw.smw.getQueryResult(selectingStatement)
-	if propertiesQuery == nil then
-		return "(no values)"
-	end
-
-	properties = {}
-	if type( propertiesQuery ) == "table" then
-		for k,v in pairs( propertiesQuery.results ) do
-			property = split(v.fulltext, ":")
-			if property[3] then
-				propertyWithoutMWNamespace = property[2] .. ":" .. property[3]
-			else
-				-- non-namespaced predicate
-				propertyWithoutMWNamespace = property[2]
-			end
-			table.insert(properties, propertyWithoutMWNamespace)
+function insertSubjectNode(subjectNodeData, result, subjectNodeProperties)
+	if nodes[subjectNodeData[1]] then
+		for _, prop in ipairs(subjectNodeProperties) do
+			table.insert(nodes[subjectNodeData[1]]["properties"], prop)
 		end
+	else
+		nodes[subjectNodeData[1]] = { title = subjectNodeData[2], properties = subjectNodeProperties }
 	end
-
-	return properties
 end
 
-function node(name, title, nodeProperties)
-	nps = table.concat(nodeProperties, "<br/>")
-	return name:gsub(":", "__"):gsub(" ", "_") .. '["<b><a href=\'' .. name .. '\'>' .. title:gsub("\"", '&quot;') .. '</a></b><br/>' .. nps .. '"]'
+function insertRelationship(subjectNodeData, predicateName, nodeLabelFromPredicate, object)
+	-- FIXME: the object title must correspond with nodeLabelFromPredicate
+	objectNodeData = getSinglePageProperties(object, nodeLabelFromPredicate)
+	table.insert(edges, subjectNodeData[1] .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectNodeData[1])
+end
+
+
+
+function node(name, data)
+	nps = table.concat(data["properties"], "<br/>")
+	return name:gsub(":", "__"):gsub(" ", "_") .. '["<b><a href=\'' .. name .. '\'>' .. data["title"]:gsub("\"", '&quot;') .. '</a></b><br/>' .. nps .. '"]'
 end
 
 function split(s, delimiter)
@@ -147,16 +165,16 @@ function split(s, delimiter)
     return result;
 end
 
-function arrayUnique(array)
-    local hash = {}
-    local res = {}
-    for _,v in ipairs(array) do
-        if (not hash[v]) then
-            res[#res+1] = v
-            hash[v] = true
-        end
-    end
-    return res
-end
+-- function arrayUnique(array)
+--     local hash = {}
+--     local res = {}
+--     for _,v in ipairs(array) do
+--         if (not hash[v]) then
+--             res[#res+1] = v
+--             hash[v] = true
+--         end
+--     end
+--     return res
+-- end
 
 return p
