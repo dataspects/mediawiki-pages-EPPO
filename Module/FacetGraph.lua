@@ -49,6 +49,16 @@ function collectProperties(selectingStatement)
 	return propertiesMatchingSelectingStatement
 end
 
+function filterIn(predicateName)
+	if predicateName == "Eppo0:hasContext" then
+		return true
+	end
+	if split(predicateName, ":")[1] ~= "Eppo0" then -- filter out eppo0 in case it was used as nodeLabelFromPredicate
+		return true
+	end
+	return false
+end
+
 function collectPages(property, nodes)
 	local query = mw.smw.getQueryResult("[[" .. property .. "::+]]|?" .. property .. "|?" .. nodeLabelFromPredicate)
 	if type( query ) == "table" then
@@ -58,7 +68,7 @@ function collectPages(property, nodes)
 			local subjectNodeData = getPageData(result, nodeLabelFromPredicate)
 			local subjectNodeProperties = {}
 			for predicateName, objects in pairs( result["printouts"] ) do
-				if split(predicateName, ":")[1] ~= "Eppo0" then -- filter out eppo0 in case it was used as nodeLabelFromPredicate
+				if filterIn(predicateName) then
 					for _, object in ipairs(objects) do
 						if pageExists (object) then
 							-- it's a relationship
