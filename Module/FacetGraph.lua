@@ -79,7 +79,7 @@ function collectPages(property, nodes)
 					end
 				end
 			end
-			if split(subjectNodeData[1], ":")[1] ~= "Property" then -- exclude pages from namespace Property
+			if split(subjectNodeData[1], "__")[1] ~= "Property" then -- exclude pages from namespace Property
 				insertSubjectNode(subjectNodeData, result, subjectNodeProperties)
 			end
 		end
@@ -140,7 +140,7 @@ function getPageData(result, nodeLabelFromPredicate) -- nodeLabelFromPredicate e
 		subjectTitle = nodeLabel
 		pageName = nodeLabel
 	end
-	local nodeData = { pageName, subjectTitle }
+	local nodeData = { pageName:gsub(":", "__"):gsub(" ", "_"), subjectTitle }
 	return nodeData
 end
 
