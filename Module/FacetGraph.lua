@@ -147,7 +147,9 @@ end
 function insertSubjectNode(subjectNodeData, result, subjectNodeProperties)
 	if nodes[subjectNodeData[1]] then
 		for _, prop in ipairs(subjectNodeProperties) do
-			table.insert(nodes[subjectNodeData[1]]["properties"], prop)
+			if not contains(nodes[subjectNodeData[1]]["properties"], prop) then
+				table.insert(nodes[subjectNodeData[1]]["properties"], prop)
+			end
 		end
 	else
 		nodes[subjectNodeData[1]] = { title = subjectNodeData[2], properties = subjectNodeProperties }
@@ -186,5 +188,14 @@ end
 --     end
 --     return res
 -- end
+
+
+function contains(list, x)
+	for _, v in pairs(list) do
+		if v == x then return true end
+	end
+	return false
+end
+
 
 return p
