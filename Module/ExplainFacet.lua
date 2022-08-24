@@ -3,15 +3,27 @@ local p = {}
 -- https://github.com/SemanticMediaWiki/SemanticScribunto/blob/master/docs/mw.smw.getQueryResult.md
 -- https://localhost/w/api.php?action=smwbrowse&browse=subject&params={%22subject%22:%22C0480574661%22,%20%22ns%22:0}
 
-function p.show(frame)
-	local selectingStatement = frame.args[1]
-	nodeLabelFromPredicate = frame.args[2]
-	local propertiesMatchingSelectingStatement = collectProperties(selectingStatement)
+function p.list(frame)
+	local propertiesMatchingSelectingStatement = propertiesMatchingSelectingStatement(frame)
+	nodes = {}
+	edges = {}
+	local listOfNodeNamesHavingLabelFromSpecifiedPredicate = {}
+	for k, property in pairs(propertiesMatchingSelectingStatement) do
+		collectPages(property, nodes) -- pages will turn up multiple times!
+	end
+	for name, data in pairs(nodes) do
+		table.insert(listOfNodeNamesHavingLabelFromSpecifiedPredicate, name)
+	end
+	return table.concat(listOfNodeNamesHavingLabelFromSpecifiedPredicate, ", ")
+end
+
+function p.graph(frame)
+	local propertiesMatchingSelectingStatement = propertiesMatchingSelectingStatement(frame)
 	nodes = {}
 	edges = {}
 	gd = {}
 	for k, property in pairs(propertiesMatchingSelectingStatement) do
-		collectPages(property, nodes, urlPrefix) -- pages will turn up multiple times!
+		collectPages(property, nodes) -- pages will turn up multiple times!
 	end
 	for name, data in pairs(nodes) do
 		table.insert(gd, node(name, data))
@@ -21,6 +33,12 @@ function p.show(frame)
 	end
 	table.insert(gd, "classDef default text-align:left")
 	return table.concat(gd, "\n")
+end
+
+function propertiesMatchingSelectingStatement(frame)
+	local selectingStatement = frame.args[1]
+	nodeLabelFromPredicate = frame.args[2]
+	return collectProperties(selectingStatement)
 end
 
 function collectProperties(selectingStatement)
@@ -63,7 +81,6 @@ function collectPages(property, nodes)
 	local query = mw.smw.getQueryResult("[[" .. property .. "::+]]|?" .. property .. "|?" .. nodeLabelFromPredicate)
 	if type( query ) == "table" then
 		-- https://github.com/SemanticMediaWiki/SemanticScribunto/blob/master/docs/mw.smw.getQueryResult.md
-		-- 
 		for k, result in pairs( query.results ) do
 			local subjectNodeData = getPageData(result, nodeLabelFromPredicate)
 			local subjectNodeProperties = {}
@@ -74,7 +91,7 @@ function collectPages(property, nodes)
 							-- it's a relationship
 							insertRelationship(subjectNodeData, predicateName, nodeLabelFromPredicate, object)
 						else
-							table.insert(subjectNodeProperties, '<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>")
+							table.insert(subjectNodeProperties, '<a href=\'./Property:' .. predicateName .. "'>" .. formatPredicateName(predicateName, "hideNamespace") .. "</a>")
 						end
 					end
 				end
@@ -159,9 +176,16 @@ end
 function insertRelationship(subjectNodeData, predicateName, nodeLabelFromPredicate, object)
 	-- FIXME: the object title must correspond with nodeLabelFromPredicate
 	objectNodeData = getSinglePageProperties(object, nodeLabelFromPredicate)
-	table.insert(edges, subjectNodeData[1] .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. predicateName .. "</a>\"|" .. objectNodeData[1])
+	table.insert(edges, subjectNodeData[1] .. '-->|\"<a href=\'./Property:' .. predicateName .. "'>" .. formatPredicateName(predicateName, "hideNamespace") .. "</a>\"|" .. objectNodeData[1])
 end
 
+
+function formatPredicateName(predicateName, format)
+	if format == "hideNamespace" then
+		return split(predicateName, ":")[2]
+	end
+	return predicateName
+end
 
 
 function node(name, data)
