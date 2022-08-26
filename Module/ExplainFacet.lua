@@ -107,17 +107,25 @@ function pageExists(pageName)
 	if pageName == nil then
 		return false
 	else
-		local query = mw.smw.getQueryResult("[[" .. pageName .. "]]")
-		if type( query ) == "table" then
-			if next (query.results) == nil then
-				return false
+		if type ( pageName ) == "string" then
+			local query = mw.smw.getQueryResult("[[" .. pageName .. "]]")
+			if type( query ) == "table" then
+				if next (query.results) == nil then
+					return false
+				end
+				if query.results[1].exists == "" then
+					return false
+				end
+				return true
 			end
-			if query.results[1].exists == "" then
-				return false
-			end
-			return true
+			return false
+		else
+			-- FIXME: pageName type = table
+			-- {
+  				-- ["raw"] = "1/2021/1/15",
+  				-- ["timestamp"] = "1610668800",
+			-- }
 		end
-		return false
 	end
 end
 
