@@ -27,4 +27,4 @@ $wgPageFormsLinkAllRedLinksToForms = true;
 
 * Consider automating the addition of a new EPPO topic type (#LEX2206031136)
 
-<sup>1</sup> Created by https://github.com/dataspects/MVP/blob/main/test_parse_cypress_tests.py
+<sup>1</sup> Created by https://github.com/dataspects/tests-documentation-maker/blob/main/test_parse_cypress_tests.py
